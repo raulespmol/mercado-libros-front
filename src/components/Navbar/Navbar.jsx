@@ -1,18 +1,30 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import {Navbar as BNav} from 'react-bootstrap';
+import { NavLink } from "react-router-dom"
+import "./style.css"
 
 function Navbar() {
+  const setActiveClass = ({isActive}) => isActive ? 'active' : ''
+
   return (
     <BNav expand="lg" className="bg-success" variant="dark">
       <Container>
         <Nav className="me-auto">
-          <BNav.Brand href='#'>MercadoLibros</BNav.Brand> 
+          <NavLink to="/">
+            MercadoLibros
+          </NavLink>
         </Nav>
         <Nav>
-          <Nav.Link>Registrar</Nav.Link>
-          <Nav.Link>Login</Nav.Link>
-          <Nav.Link>Carrito</Nav.Link>
+          <NavLink to="/registro" className={setActiveClass}>
+            Registrarse
+          </NavLink>
+          <NavLink to="/login" className={setActiveClass}>
+            Login
+          </NavLink>
+          <NavLink to="/carrito" className={setActiveClass}>
+            Carrito
+          </NavLink>
         </Nav>
       </Container>
     </BNav>
