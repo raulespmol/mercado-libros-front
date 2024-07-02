@@ -8,7 +8,7 @@ const CardTienda = ({id, titulo = "Titulo", autor = "Autor", precio = "$9.999", 
   return (
     <Card>
       <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
+      <Card.Body className='info'>
         <div>
           <h5 className='titulo'>{titulo}</h5>
           <span className='autor'>{autor}</span>
