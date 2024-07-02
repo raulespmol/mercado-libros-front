@@ -1,0 +1,16 @@
+.container-fluid {
+  height: 550px;
+
+  background-image: url('/src/assets/img/hero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ccffbc;
+  
+  display: flex;
+  align-items: flex-end;
+}
+
+.container-fluid h1 {
+  font-size: 5rem;
+}
