@@ -4,6 +4,11 @@ import { Routes, Route } from 'react-router-dom'
 
 //Views
 import Home from "./views/Home"
+import Registro from "./views/Registro"
+import Login from "./views/Login"
+import Tienda from "./views/Tienda"
+import DetallePublicacion from "./views/DetallePublicacion"
+import Carrito from "./views/Carrito"
 import NotFound from "./views/NotFound"
 
 
