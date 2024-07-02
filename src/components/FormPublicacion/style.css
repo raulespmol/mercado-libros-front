@@ -1,8 +1,8 @@
-.card {
+.sidebar {
   width: 360px;
 }
 
-.card-body {
+.formulario {
   display: flex;
   flex-direction: column;
   align-items: center;

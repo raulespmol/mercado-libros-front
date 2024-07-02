@@ -4,8 +4,8 @@ import { Form, Button, Card } from 'react-bootstrap';
 
 const FormPublicacion = () => {
   return (
-    <Card className="text-center">
-      <Card.Body>
+    <Card className="text-center sidebar">
+      <Card.Body className='formulario'>
         <h2 className="mb-4">Crear Publicación</h2>
         <Form className='w-100'>
           <Form.Group controlId="formTitulo">
