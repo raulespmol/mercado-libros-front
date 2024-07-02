@@ -1,0 +1,30 @@
+.card-body, .card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo {
+  font-weight: 600;
+  margin: 0;
+}
+
+.autor {
+  font-size: 0.9rem;
+  color: #6b6b6b;
+}
+
+.precio {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.card-footer span {
+  font-size: 0.8rem;
+  color: #6b6b6b;
+}
+
+.usuario {
+  margin: 0;
+}
