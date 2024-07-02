@@ -6,7 +6,7 @@ import './style.css'
 //el id de la publicacion se usara para navegar al detalle '/libros/:id'
 const CardTienda = ({id, titulo = "Titulo", autor = "Autor", precio = "$9.999", usuario="Raul Espinoza", imagen}) => {
   return (
-    <Card style={{width: '360px'}}>
+    <Card>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
         <div>
