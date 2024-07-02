@@ -4,7 +4,7 @@ import './Hero.css'
 
 const Hero = () => {
   return (
-    <Container fluid className="py-5">
+    <Container fluid className="py-5" id="hero">
       <Container>
         <p className="m-0">¡Dale una segunda vida a esos tesoros literarios!</p>
         <h1>MercadoLibros</h1>
