@@ -1,5 +1,5 @@
 //Components
-import Navbar from "./components/Navbar"
+import Navbar from "./components/Navbar/Navbar"
 import { Routes, Route } from 'react-router-dom'
 
 //Views
@@ -10,6 +10,7 @@ import Tienda from "./views/Tienda"
 import DetallePublicacion from "./views/DetallePublicacion"
 import Carrito from "./views/Carrito"
 import NotFound from "./views/NotFound"
+import CrearPublicacion from "./views/CrearPublicacion"
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/libros" element={<Tienda />} />
           <Route path="/libros/:id" element={<DetallePublicacion />} />
+          <Route path="/libros/nuevo" element={<CrearPublicacion />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
