@@ -12,6 +12,7 @@ import DetallePublicacion from "./views/DetallePublicacion"
 import Carrito from "./views/Carrito"
 import NotFound from "./views/NotFound"
 import CrearPublicacion from "./views/CrearPublicacion"
+import MiPerfil from "./views/MiPerfil"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/libros" element={<Tienda />} />
           <Route path="/libros/:id" element={<DetallePublicacion />} />
           <Route path="/libros/nuevo" element={<CrearPublicacion />} />
+          <Route path="/perfil" element={<MiPerfil />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

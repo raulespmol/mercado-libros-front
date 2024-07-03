@@ -1,0 +1,27 @@
+.sidebar {
+  width: 360px;
+  min-height: calc(100vh - 40px);
+}
+
+.links-perfil{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+
+  a {
+    text-decoration: none;
+    padding: 16px 8px;
+    color: #313131;
+  }
+
+  a:hover{
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  a.active {
+    color: #000000;
+    background-color: rgba(0, 0, 0, 0.05);
+
+  }
+}
