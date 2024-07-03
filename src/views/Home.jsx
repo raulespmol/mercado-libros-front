@@ -2,8 +2,11 @@ import React from 'react'
 import Hero from '../components/Hero/Hero'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import CardTienda from '../components/CardTienda/CardTienda'
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+  const navigate = useNavigate()
+
   return (
     <>
       <Hero></Hero>
@@ -21,7 +24,12 @@ const Home = () => {
           </Col>
         </Row>
         <Row className='my-3'>
-          <Button variant='success'>Ver más</Button>
+          <Button 
+            variant='success'
+            onClick={() => navigate('/libros')}
+          >
+            Ver más
+          </Button>
         </Row>
 
       </Container>
