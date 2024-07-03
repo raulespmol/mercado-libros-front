@@ -1,5 +1,6 @@
 //Components
 import Navbar from "./components/Navbar/Navbar"
+import Footer from "./components/Footer/Footer"
 import { Routes, Route } from 'react-router-dom'
 
 //Views
@@ -28,6 +29,7 @@ function App() {
           <Route path="/carrito" element={<Carrito />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer/>
     </>
   )
 }
