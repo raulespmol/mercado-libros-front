@@ -1,5 +1,6 @@
 import React from 'react'
 import FormPublicacion from '../components/FormPublicacion/FormPublicacion'
+import CardDetalle from '../components/CardDetalle/CardDetalle';
 import { Container } from 'react-bootstrap'
 
 const CrearPublicacion = () => {
@@ -8,6 +9,7 @@ const CrearPublicacion = () => {
       <FormPublicacion />
       <div className='p-3'>
         <h3 className='text-center'>Vista previa</h3>
+        <CardDetalle />
       </div>
     </Container>
   )
