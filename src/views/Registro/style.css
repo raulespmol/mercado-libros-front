@@ -1,0 +1,32 @@
+.sectionMain{
+
+    width: 550px;
+    text-align: center;
+
+    h1{
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    h3 {
+        font-size: 15px;
+        font-weight: 500;
+        color: #555555;
+        margin-top: 20px;
+    }
+
+    form{
+        input{
+            border-radius: 50px;
+        }
+
+        .goLogin{
+            a {
+                color:#727272;
+                &:hover{
+                    color: #444444;
+                }
+            }
+        }
+    }
+}

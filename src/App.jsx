@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 
 //Views
 import Home from "./views/Home"
-import Registro from "./views/Registro"
+import Registro from "./views/Registro/Registro"
 import Login from "./views/Login"
 import Tienda from "./views/Tienda"
 import DetallePublicacion from "./views/DetallePublicacion"
