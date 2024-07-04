@@ -40,7 +40,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="footer-links-div">
-            <h4>¡Nuestras redes sociales!</h4>
+            <h4>Síguenos en</h4>
             <div className="redes-sociales">
                 <p><img src={facebook} alt="logofacebook"/></p>
                 <p><img src={instagram} alt="logoInstagram"/></p>
