@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap'; 
 import './style.css';
+import placeholder from "../../assets/img/placeholder.jpg"
 
 const CardPublicacion = () => {
   const exampleData = [
@@ -41,7 +42,7 @@ const CardPublicacion = () => {
     <div className="d-flex justify-content-around flex-wrap">
       {exampleData.map((item) => (
         <Card key={item.id} style={cardStyle} className="m-2">
-          <Card.Img variant="top" src={item.imageUrl} alt={item.title} style={imgStyle} />
+          <Card.Img variant="top" src={placeholder} alt={item.title} style={imgStyle} />
           <Card.Body className="d-flex flex-column">
             <div className="d-flex justify-content-between">
               <div>

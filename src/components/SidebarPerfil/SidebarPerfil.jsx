@@ -1,14 +1,16 @@
 import { Button, Card, Image } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
+import placeholder from "../../assets/img/placeholder.jpg"
 import "./style.css"
 
 const SidebarPerfil = () => {
   return (
     <Card className="text-center sidebar">
-      <Card.Body>
-        <div className="top">
-          <div className="d-flex">
-            <h2 className="mb-4">Usuario</h2>
+      <Card.Body className="d-flex flex-column justify-content-between">
+        <div className="top d-flex flex-column gap-3">
+          <div className="d-flex align-items-center gap-3">
+            <img src={placeholder} alt="" className="avatar-perfil" />
+              <h2 className="mb-0">Usuario</h2>
           </div>
           <Button variant="dark" className='w-100'>Crear Publicacion</Button>
           <div className='links-perfil'>
@@ -18,7 +20,7 @@ const SidebarPerfil = () => {
           </div>
         </div>
 
-        <Button variant="outline-dark" className='w-100 me-auto'>Cerrar sesión</Button>
+        <Button variant="outline-dark" className='w-100'>Cerrar sesión</Button>
       </Card.Body>
     </Card>
   )

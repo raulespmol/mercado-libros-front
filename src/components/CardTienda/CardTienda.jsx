@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './style.css'
 import { useNavigate } from "react-router-dom"
+import placeholder from "../../assets/img/placeholder.jpg"
 
 //valores por defecto para renderizar mientras se obtienen datos desde el back
 //el id de la publicacion se usara para navegar al detalle '/libros/:id'
@@ -10,7 +11,7 @@ const CardTienda = ({id=1, titulo = "Titulo", autor = "Autor", precio = "$9.999"
   
   return (
     <Card>
-      <Card.Img variant="top" src="holder.js/100px180" /> {/* REEMPLAZAR POR 'imagen' */}
+      <Card.Img variant="top" src={placeholder} /> {/* REEMPLAZAR POR 'imagen' */}
       <Card.Body className='info'>
         <div>
           <h5 className='titulo'>{titulo}</h5>
