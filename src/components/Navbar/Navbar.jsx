@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { Navbar as BNav } from "react-bootstrap";
+import { Navbar as BNav, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 
