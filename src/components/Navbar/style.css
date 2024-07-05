@@ -7,3 +7,11 @@ nav a {
 nav a.active {
   color: #f2c42f
 }
+
+.iconSearch{
+  &:hover{
+    cursor: pointer;
+    background-color: #00753f;
+    color: white;
+  }
+}
