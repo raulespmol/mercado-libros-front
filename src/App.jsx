@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 //Views
 import Home from "./views/Home"
 import Registro from "./views/Registro/Registro"
-import Login from "./views/Login"
+import LoginPage from "./views/Login/Login"
 import Tienda from "./views/Tienda"
 import DetallePublicacion from "./views/DetallePublicacion"
 import Carrito from "./views/Carrito"
@@ -24,7 +24,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/registro" element={<Registro />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/libros" element={<Tienda />} />
           <Route path="/libros/:id" element={<DetallePublicacion />} />
           <Route path="/libros/nuevo" element={<CrearPublicacion />} />
