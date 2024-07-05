@@ -9,7 +9,7 @@ const CrearPublicacion = () => {
       <FormPublicacion />
       <div className='p-3'>
         <h3 className='text-center'>Vista previa</h3>
-        <CardDetalle />
+        {/* <CardDetalle /> */}
       </div>
     </Container>
   )

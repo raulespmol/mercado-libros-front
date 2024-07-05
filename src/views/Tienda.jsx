@@ -1,14 +1,26 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import CardTienda from '../components/CardTienda/CardTienda'
 import Filtros from '../components/Filtros/Filtros'
+import { useNavigate } from 'react-router-dom'
 
 const Tienda = () => {
+  const navigate = useNavigate()
+
   return (
     <Container fluid className='p-0 d-flex'>
       <Filtros />
       <div className='p-3'>
-        <h3 className='text-center'>Tienda</h3>
+        <div className='d-flex align-items-center justify-content-between mb-3'>
+          <h3 className='text-center'>Tienda</h3>
+          <Button 
+            variant="dark" 
+            className=''
+            onClick={() => navigate(`/libros/nuevo`)}
+          >
+            Crear Publicacion
+          </Button>
+        </div>
         <Container>
           {/* Renderizar con .map() los datos traidos desde la API */}
           <Row>
