@@ -1,9 +1,11 @@
 import { Button, Card, Image } from "react-bootstrap"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import placeholder from "../../assets/img/placeholder.jpg"
 import "./style.css"
 
 const SidebarPerfil = () => {
+  const navigate = useNavigate()
+
   return (
     <Card className="text-center sidebar">
       <Card.Body className="d-flex flex-column justify-content-between">
@@ -12,7 +14,13 @@ const SidebarPerfil = () => {
             <img src={placeholder} alt="" className="avatar-perfil" />
               <h2 className="mb-0">Usuario</h2>
           </div>
-          <Button variant="dark" className='w-100'>Crear Publicacion</Button>
+          <Button 
+            variant="dark" 
+            className='w-100'
+            onClick={() => navigate(`/libros/nuevo`)}
+          >
+            Crear Publicacion
+          </Button>
           <div className='links-perfil'>
             <NavLink to="/perfil">Mi Perfil</NavLink>
             <NavLink to="./favoritos">Mis Favoritos</NavLink>
@@ -20,7 +28,12 @@ const SidebarPerfil = () => {
           </div>
         </div>
 
-        <Button variant="outline-dark" className='w-100'>Cerrar sesión</Button>
+        <Button 
+          variant="outline-dark" 
+          className='w-100'
+        >
+          Cerrar sesión
+        </Button>
       </Card.Body>
     </Card>
   )
