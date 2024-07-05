@@ -15,6 +15,7 @@ import CrearPublicacion from "./views/CrearPublicacion"
 import Perfil from "./views/Perfil"
 import MisPublicaciones from "./views/MisPublicaciones"
 import Favoritos from "./views/Favoritos"
+import MisDatos from "./views/MisDatos"
 
 function App() {
 
@@ -30,8 +31,9 @@ function App() {
           <Route path="/libros/nuevo" element={<CrearPublicacion />} />
 
           <Route path="/perfil" element={<Perfil />} >
+            <Route index element={ <MisDatos/>} />
             <Route path="publicaciones" element={<MisPublicaciones />}  />
-            <Route path="favoritos" element={<Favoritos />}  />
+            <Route path="favoritos" element={<Favoritos />} />
           </Route>
 
           <Route path="/carrito" element={<Carrito />} />
