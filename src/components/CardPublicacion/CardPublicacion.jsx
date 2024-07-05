@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card } from 'react-bootstrap'; // Asumiendo que estás usando React Bootstrap
+import { Card } from 'react-bootstrap'; 
 import './style.css';
+import placeholder from "../../assets/img/placeholder.jpg"
 
 const CardPublicacion = () => {
   const exampleData = [
@@ -27,17 +28,27 @@ const CardPublicacion = () => {
     }
   ];
 
+  const cardStyle = {
+    width: '18rem',
+    height: '18rem', 
+  };
+  
+  const imgStyle = {
+    height: '10rem', 
+    objectFit: 'cover', 
+  };
+
   return (
-    <div className="d-flex justify-content-around">
+    <div className="d-flex justify-content-around flex-wrap">
       {exampleData.map((item) => (
-        <Card key={item.id} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={item.imageUrl} alt={item.title} />
-          <Card.Body className="d-flex">
-            <div className="flex-grow-1">
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text className="text-muted">{item.author}</Card.Text>
-            </div>
-            <div className="d-flex align-items-center justify-content-end">
+        <Card key={item.id} style={cardStyle} className="m-2">
+          <Card.Img variant="top" src={placeholder} alt={item.title} style={imgStyle} />
+          <Card.Body className="d-flex flex-column">
+            <div className="d-flex justify-content-between">
+              <div>
+                <Card.Title>{item.title}</Card.Title>
+                <Card.Text className="text-muted">{item.author}</Card.Text>
+              </div>
               <div className="font-weight-bold">${item.price}</div>
             </div>
           </Card.Body>
@@ -46,5 +57,4 @@ const CardPublicacion = () => {
     </div>
   );
 }
-
 export default CardPublicacion;

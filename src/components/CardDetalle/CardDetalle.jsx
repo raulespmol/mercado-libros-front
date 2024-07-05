@@ -1,14 +1,15 @@
 import React from 'react'
 import { Badge, Button, Card, Col, Row, Stack } from 'react-bootstrap'
 import "./style.css"
+import placeholder from "../../assets/img/placeholder.jpg"
 
 const CardDetalle = ({id}) => {
 
   return (
-    <Row className='pt-3'>
+    <Row className='pt-3 mb-3'>
         <Col lg={6} xl={5}>
           <Card>
-            <Card.Img src="holder.js/100px180"/>
+            <Card.Img src={placeholder}/>
           </Card>        
         </Col>
         <Col lg={6} xl={7}>

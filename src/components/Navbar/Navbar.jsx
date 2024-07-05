@@ -15,6 +15,9 @@ function Navbar() {
             Mercadolibros
           </NavLink>
         </Nav>
+        <Form className="d-flex">
+          <Form.Control type="text" placeholder="Busca tu libro" className="text-black bg-light form-control-sm m-0" style={{ width: '350px' }}/>
+        </Form>
         <Nav>
           <NavLink to="/registro" className={setActiveClass}>
             <div className="d-flex text-white">

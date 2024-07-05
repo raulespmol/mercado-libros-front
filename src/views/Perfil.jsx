@@ -1,16 +1,15 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import SidebarPerfil from '../components/SidebarPerfil/SidebarPerfil'
+import { Outlet } from 'react-router-dom'
 
-const CrearPublicacion = () => {
+const Perfil = () => {
   return (
     <Container fluid className='p-0 d-flex'>
       <SidebarPerfil />
-      <div className='p-3'>
-        <h3 className='text-center'>Bienvenido Usuario</h3>
-      </div>
+      <Outlet />
     </Container>
   )
 }
 
-export default CrearPublicacion
+export default Perfil
