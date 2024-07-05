@@ -1,4 +1,5 @@
 import Container from "react-bootstrap/Container";
+import InputGroup from 'react-bootstrap/InputGroup';
 import Nav from "react-bootstrap/Nav";
 import { Navbar as BNav, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -10,14 +11,15 @@ function Navbar() {
   return (
     <BNav expand="lg" className="bg-success" variant="dark">
       <Container>
-        <Nav className="me-auto">
+        <Nav>
           <NavLink to="/" className={setActiveClass}>
             Mercadolibros
           </NavLink>
         </Nav>
-        <Form className="d-flex">
-          <Form.Control type="text" placeholder="Busca tu libro" className="text-black bg-light form-control-sm m-0" style={{ width: '350px' }}/>
-        </Form>
+        <InputGroup style={{ width: '400px' }} >
+          <Form.Control type="search" placeholder="Buscar un libro" className="text-black bg-light form-control-sm m-0 border border-end-0 rounded-start-5"/>
+          <InputGroup.Text id="basic-addon1" className="rounded-end-5 iconSearch"><i className="fa-solid fa-magnifying-glass"></i></InputGroup.Text>
+        </InputGroup>
         <Nav>
           <NavLink to="/registro" className={setActiveClass}>
             <div className="d-flex text-white">
