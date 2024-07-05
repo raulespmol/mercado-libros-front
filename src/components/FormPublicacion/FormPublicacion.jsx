@@ -26,7 +26,7 @@ const FormPublicacion = () => {
 
           <Form.Group controlId="formGenero">
             <Form.Control as="select" custom>
-              <option>Genero</option>
+              <option>Género</option>
               <option>Ficción</option>
               <option>No Ficción</option>
               <option>Misterio</option>
