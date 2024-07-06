@@ -1,5 +1,10 @@
+.grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+}
+
 .sidebar {
-  width: 360px;
+  width: 360px  !important
 }
 
 .formulario {
@@ -8,7 +13,7 @@
   align-items: center;
 }
 
-.form-control {
+.form-control, .form-select {
   margin-bottom: 15px;
   width: 100%;
 }

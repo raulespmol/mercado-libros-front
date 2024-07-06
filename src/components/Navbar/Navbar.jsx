@@ -37,10 +37,18 @@ function Navbar() {
               <div>Ingresar</div>
             </div>
           </NavLink>
-          <NavLink to="/carrito" className={setActiveClass}>
+          <NavLink to="/libros" className={setActiveClass}>
             <div className="d-flex text-white">
               <div>
                 <i className="fa-solid fa-bag-shopping me-1"></i>
+              </div>
+              <div>Tienda</div>
+            </div>
+          </NavLink>
+          <NavLink to="/carrito" className={setActiveClass}>
+            <div className="d-flex text-white">
+              <div>
+                <i class="fa-solid fa-cart-shopping"></i>
               </div>
               <div>Carrito</div>
             </div>
