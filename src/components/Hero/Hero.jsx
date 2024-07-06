@@ -8,15 +8,16 @@ const Hero = () => {
 
   return (
     <Container fluid className="py-5" id="hero">
-      <Container>
-        <p className="m-0">¡Dale una segunda vida a esos tesoros literarios!</p>
+      <Container className="textHero">
+        <h5>¡Dale una segunda vida a esos tesoros literarios!</h5>
         <h1>MercadoLibros</h1>
         <Button 
-          variant="dark" 
-          size="lg"
+          className="text-success fw-normal rounded-1 px-4 py-2"
+          variant="light" 
+          size="md"
           onClick={() => navigate('/libros')}
         >
-          Tienda
+          Comprar ahora
         </Button>
       </Container>
     </Container>

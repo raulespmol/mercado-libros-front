@@ -1,5 +1,6 @@
 //Components
 import RouterLinks from "./router/Router"
+import './App.css'
 
 function App() {
 
