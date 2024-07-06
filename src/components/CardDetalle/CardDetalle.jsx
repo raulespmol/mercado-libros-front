@@ -6,41 +6,41 @@ import placeholder from "../../assets/img/placeholder.jpg"
 const CardDetalle = ({id}) => {
 
   return (
-    <Row className='pt-3 mb-3'>
-        <Col lg={6} xl={5}>
-          <Card>
-            <Card.Img src={placeholder}/>
-          </Card>        
-        </Col>
-        <Col lg={6} xl={7}>
+    <Row className='pt-3 mb-3 justify-content-center'>
+      <Col lg={4} xl={4}>
+        <Card>
+          <Card.Img src={placeholder}/>
+        </Card>        
+      </Col>
+      <Col lg={6} xl={5}>
 
-          <h2>Publicacion {id}</h2>
-          <p className='mb-3'>Autor</p>
+        <h2>Publicacion {id}</h2>
+        <p className='mb-3'>Autor</p>
 
-          <hr />
+        <hr />
 
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate error deserunt quos, reiciendis architecto sint at labore quibusdam corporis, aperiam adipisci iste molestias aut. Nostrum quaerat tempora esse voluptate amet!</p>
-          <Stack direction="horizontal" gap={2}>
-            <Badge bg="secondary">Genero</Badge>
-            <Badge bg="secondary">Editorial</Badge>
-          </Stack>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate error deserunt quos, reiciendis architecto sint at labore quibusdam corporis, aperiam adipisci iste molestias aut. Nostrum quaerat tempora esse voluptate amet!</p>
+        <Stack direction="horizontal" gap={2}>
+          <Badge bg="secondary">Genero</Badge>
+          <Badge bg="secondary">Editorial</Badge>
+        </Stack>
 
-          <hr />
+        <hr />
 
-          <span>publicado por</span>
-          <p className='usuario'>Usuario</p>
+        <span>publicado por</span>
+        <p className='usuario'>Usuario</p>
 
-          <hr />
+        <hr />
 
-          <div className='d-flex justify-content-between align-items-center'>
-            <span className='precio'>$9.999</span>
-            <div className='d-flex gap-2'>
-              <Button variant='warning'>+ Favoritos</Button>
-              <Button variant='success'>+ Carrito</Button>
-            </div>
+        <div className='d-flex justify-content-between align-items-center'>
+          <span className='precio'>$9.999</span>
+          <div className='d-flex gap-2'>
+            <Button variant='warning'>+ Favoritos</Button>
+            <Button variant='success'>+ Carrito</Button>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </Col>
+    </Row>
   )
 }
 

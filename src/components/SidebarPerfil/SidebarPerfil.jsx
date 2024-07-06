@@ -1,6 +1,6 @@
 import { Button, Card, Image } from "react-bootstrap"
 import { NavLink, useNavigate } from "react-router-dom"
-import placeholder from "../../assets/img/placeholder.jpg"
+import avatarPlaceholder from "../../assets/img/avatar-placeholder.jpg"
 import "./style.css"
 
 const SidebarPerfil = () => {
@@ -11,7 +11,7 @@ const SidebarPerfil = () => {
       <Card.Body className="d-flex flex-column justify-content-between">
         <div className="top d-flex flex-column gap-3">
           <div className="d-flex align-items-center gap-3">
-            <img src={placeholder} alt="" className="avatar-perfil" />
+            <img src={avatarPlaceholder} alt="" className="avatar-perfil" />
               <h2 className="mb-0">Usuario</h2>
           </div>
           <Button 

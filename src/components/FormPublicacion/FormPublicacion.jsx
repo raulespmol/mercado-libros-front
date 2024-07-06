@@ -25,14 +25,14 @@ const FormPublicacion = () => {
           </Form.Group>
 
           <Form.Group controlId="formGenero">
-            <Form.Control as="select" custom>
+            <Form.Select>
               <option>Género</option>
               <option>Ficción</option>
               <option>No Ficción</option>
               <option>Misterio</option>
               <option>Biografía</option>
               <option>Otros</option>
-            </Form.Control>
+            </Form.Select>
           </Form.Group>
 
           <Form.Group controlId="formURLPortada">
