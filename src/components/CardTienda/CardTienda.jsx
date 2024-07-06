@@ -2,16 +2,19 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './style.css'
 import { useNavigate } from "react-router-dom"
-import placeholder from "../../assets/img/placeholder.jpg"
+import placeholder from "../../assets/img/placeholder.jpg";
 
 //valores por defecto para renderizar mientras se obtienen datos desde el back
 //el id de la publicacion se usara para navegar al detalle '/libros/:id'
-const CardTienda = ({id=1, titulo = "Titulo", autor = "Autor", precio = "$9.999", usuario="Raul Espinoza", imagen}) => {
+
+const CardTienda = ({id=1, titulo="Titulo", autor="Autor", precio="$9.999", usuario="Raul Espinoza", img}) => {
+  
   const navigate = useNavigate()
   
   return (
     <Card>
-      <Card.Img variant="top" src={placeholder} /> {/* REEMPLAZAR POR 'imagen' */}
+      {/* si la dirección de la imagen falla se mostrará placeolder */}
+      <Card.Img variant="top" src={img ? img : placeholder} />
       <Card.Body className='info'>
         <div>
           <h5 className='titulo'>{titulo}</h5>

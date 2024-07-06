@@ -10,12 +10,22 @@ const UserProvider = ({ children }) => {
   const [token, setToken] = useState(initialStateToken);
 
   useEffect(() => {
-    if (token) {
-      localStorage.setItem("token", token);
-    } else {
-      localStorage.removeItem("token");
-    }
-  }, [token]);
+    setTimeout(() => {
+        if (token) {
+          localStorage.setItem("token", token);
+        } else {
+          localStorage.removeItem("token");
+        }
+      }, [token]);
+    }, 4000);
+    
+  // useEffect(() => {
+  //   if (token) {
+  //     localStorage.setItem("token", token);
+  //   } else {
+  //     localStorage.removeItem("token");
+  //   }
+  // }, [token]);
 
   const loginWithEmailAndPassword = async (email, password) => {
     const response = await fetch(`${BASE_URL}/users/login`, {
@@ -41,10 +51,15 @@ const UserProvider = ({ children }) => {
     return data;
   };
 
+  // const logout = () => {
+  //   setToken(null);
+  // };
   const logout = () => {
-    setToken(null);
+    setTimeout(() => {
+      setToken(null);
+    }, 3000);
   };
-
+  
   return (
     <UserContext.Provider
       value={{
