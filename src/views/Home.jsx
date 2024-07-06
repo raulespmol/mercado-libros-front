@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <>
-      <Hero></Hero>
+      <Hero />
       <h2 className='text-center my-5 fw-semibold fs-1'>Tienda</h2>
       <Container>
         <Row>

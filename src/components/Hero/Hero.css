@@ -1,16 +1,28 @@
 #hero {
   height: 550px;
-
-  background-image: url('/src/assets/img/hero.jpg');
+  background-image: url('/src/assets/img/banner_hero.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #ccffbc;
-  
+  background-blend-mode: multiply;
+  /* background-color: #ccffbc; */
+  background-color: #62754c;
   display: flex;
   align-items: flex-end;
+  text-shadow: 2px 3px 6px rgba(0,0,0,0.51);
+  .textHero{
+    color: rgb(235, 235, 235);
+  }
+
+  h1 {
+    font-size: 56px;
+    margin-bottom: 3rem;
+  }
+
+  h5{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+  }
 }
 
-.container-fluid h1 {
-  font-size: 5rem;
-}
