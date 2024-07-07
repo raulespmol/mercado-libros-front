@@ -40,7 +40,7 @@ const Tienda = () => {
   return (
     <Container fluid className="p-0 d-flex">
       <Filtros />
-      <div className="p-3">
+      <div className="p-5 w-100">
         <div className="d-flex align-items-center justify-content-between mb-3">
           <h3 className="text-center">Tienda</h3>
           <Button
@@ -51,10 +51,8 @@ const Tienda = () => {
             Crear Publicacion
           </Button>
         </div>
-        <Container>
-          
+        <Container fluid className="px-0">     
           {/* Renderizar con .map() los datos traidos desde la API */}
-
           <Row>
             {libros.map((libro, i) => (
               <Col key={libro.id} sm={6} md={4} lg={3} className="mb-4">

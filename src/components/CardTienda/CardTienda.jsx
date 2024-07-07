@@ -14,7 +14,11 @@ const CardTienda = ({id=1, titulo="Titulo", autor="Autor", precio="$9.999", usua
   return (
     <Card>
       {/* si la dirección de la imagen falla se mostrará placeolder */}
-      <Card.Img variant="top" src={img ? img : placeholder} />
+      <Card.Img 
+        variant="top" 
+        src={img ? img : placeholder} 
+        className='imgStyle'
+      />
       <Card.Body className='info'>
         <div>
           <h5 className='titulo'>{titulo}</h5>
