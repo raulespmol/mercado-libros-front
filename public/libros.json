@@ -60,7 +60,7 @@
     "img": "https://images.cdn3.buscalibre.com/fit-in/360x360/5f/e3/5fe36ee4454f97b6b815ca8714032c69.jpg",
     "autor": "Julio Cortázar",
     "precio": 10500,
-    "liked": false
+    "liked": true
   },
   {
     "id": "8",
@@ -69,7 +69,7 @@
     "img": "https://images.cdn3.buscalibre.com/fit-in/360x360/0b/55/0b55e9a3bac9981cdaa64ede98f285aa.jpg",
     "autor": "Patrick Süskind",
     "precio": 11500,
-    "liked": false
+    "liked": true
   },
   {
     "id": "9",
@@ -78,7 +78,7 @@
     "img": "https://images.cdn2.buscalibre.com/fit-in/360x360/4a/f8/4af862174ba709db62744f988c62e3b6.jpg",
     "autor": "Carlos Ruiz Zafón",
     "precio": 12500,
-    "liked": false
+    "liked": true
   },
   {
     "id": "10",
@@ -87,6 +87,6 @@
     "img": "",
     "autor": "John Katzenbach",
     "precio": 14620,
-    "liked": false
+    "liked": true
   }
 ]

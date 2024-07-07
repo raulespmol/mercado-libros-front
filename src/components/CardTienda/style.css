@@ -28,3 +28,8 @@
 .usuario {
   margin: 0;
 }
+
+.imgStyle{
+  object-fit: cover;
+  height: 200px;
+}
