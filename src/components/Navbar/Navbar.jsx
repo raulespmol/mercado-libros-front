@@ -48,7 +48,7 @@ function Navbar() {
           <NavLink to="/carrito" className={setActiveClass}>
             <div className="d-flex text-white">
               <div>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i className="fa-solid fa-cart-shopping"></i>
               </div>
               <div>Carrito</div>
             </div>
