@@ -6,6 +6,8 @@ import CardTienda from "../components/CardTienda/CardTienda";
 import Filtros from "../components/Filtros/Filtros";
 import { useNavigate } from "react-router-dom";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const Tienda = () => {
   const navigate = useNavigate();
   // const { libros, setLibros } = useContext(FavoritosContext);
@@ -13,10 +15,10 @@ const Tienda = () => {
   const [libros, setLibros] = useState([]);
 
   const getLibros = async () => {
-    const response = await fetch("libros.json");
+    const response = await fetch(`${BASE_URL}/libros/get-all`);
     const res = await response.json();
     // AGREGADO DE OBJETOS, CON "MAP", AL ESTADO "LIBROS" Y UNA NUEVA PROP => "ISFAVORITE" 👇
-    setLibros(res);
+    setLibros(res.data);
   };
 
   useEffect(() => {
@@ -51,17 +53,18 @@ const Tienda = () => {
             Crear Publicacion
           </Button>
         </div>
-        <Container fluid className="px-0">     
-          {/* Renderizar con .map() los datos traidos desde la API */}
+        <Container fluid className="px-0">
           <Row>
-            {libros.map((libro, i) => (
-              <Col key={libro.id} sm={6} md={4} lg={3} className="mb-4">
+            {libros.map(libro => (
+              <Col key={libro.libro_id} sm={6} md={4} lg={3} className="mb-4">
                 <CardTienda
-                  id={libro.id}
+                  id={libro.libro_id}
                   titulo={libro.titulo}
                   autor={libro.autor}
                   precio={libro.precio}
-                  img={libro.img}
+                  img={libro.url_imagen}
+                  usuario={libro.usuario}
+                  genero={libro.genero}
                 />
               </Col>
             ))}
