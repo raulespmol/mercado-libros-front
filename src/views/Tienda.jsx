@@ -13,12 +13,18 @@ const Tienda = () => {
   // const { libros, setLibros } = useContext(FavoritosContext);
 
   const [libros, setLibros] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   const getLibros = async () => {
-    const response = await fetch(`${BASE_URL}/libros/get-all`);
-    const res = await response.json();
-    // AGREGADO DE OBJETOS, CON "MAP", AL ESTADO "LIBROS" Y UNA NUEVA PROP => "ISFAVORITE" 👇
-    setLibros(res.data);
+    try {
+      const response = await fetch(`${BASE_URL}/libros/get-all`);
+      const res = await response.json();
+      setLibros(res.data);
+    } catch (error) {
+      console.error('Error al obtener los libros', error)
+    } finally {
+      setIsLoading(false)
+    }
   };
 
   useEffect(() => {
@@ -55,19 +61,22 @@ const Tienda = () => {
         </div>
         <Container fluid className="px-0">
           <Row>
-            {libros.map(libro => (
-              <Col key={libro.libro_id} sm={6} md={4} lg={3} className="mb-4">
-                <CardTienda
-                  id={libro.libro_id}
-                  titulo={libro.titulo}
-                  autor={libro.autor}
-                  precio={libro.precio}
-                  img={libro.url_imagen}
-                  usuario={libro.usuario}
-                  genero={libro.genero}
-                />
-              </Col>
-            ))}
+            {isLoading
+              ? "Cargando" //Reemplazar por alguna animacion
+              : libros.map(libro => (
+                <Col key={libro.libro_id} sm={6} md={4} lg={3} className="mb-4">
+                  <CardTienda
+                    id={libro.libro_id}
+                    titulo={libro.titulo}
+                    autor={libro.autor}
+                    precio={libro.precio}
+                    img={libro.url_imagen}
+                    usuario={libro.usuario}
+                    genero={libro.genero}
+                  />
+                </Col>
+              ))
+            }
           </Row>
         </Container>
       </div>
