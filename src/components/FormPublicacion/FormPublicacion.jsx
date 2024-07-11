@@ -2,26 +2,60 @@ import React from 'react';
 import './style.css';
 import { Form, Button, Card } from 'react-bootstrap';
 
-const FormPublicacion = () => {
+const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
+
+  const handleLibro = (e) => {
+    const {name, value} = e.target
+
+    setNuevoLibro({
+      ...nuevoLibro, 
+      [name]: value
+    })
+  }
+
   return (
     <Card className="text-center sidebar">
       <Card.Body className='formulario'>
         <h2 className="mb-4">Crear Publicación</h2>
         <Form className='w-100'>
           <Form.Group controlId="formTitulo">
-            <Form.Control type="text" placeholder="Título" />
+            <Form.Control 
+              type="text"
+              placeholder="Título"
+              value={nuevoLibro.titulo}
+              onChange={handleLibro}
+              name="titulo"
+          />
           </Form.Group>
 
           <Form.Group controlId="formAutor">
-            <Form.Control type="text" placeholder="Autor" />
+            <Form.Control 
+              type="text"
+              placeholder="Autor"
+              value={nuevoLibro.autor}
+              onChange={handleLibro}
+              name="autor"
+          />
           </Form.Group>
 
           <Form.Group controlId="formEditorial">
-            <Form.Control type="text" placeholder="Editorial" />
+            <Form.Control 
+              type="text"
+              placeholder="Editorial"
+              value={nuevoLibro.editorial}  
+              onChange={handleLibro}
+              name="editorial"
+          />
           </Form.Group>
 
           <Form.Group controlId="formAno">
-            <Form.Control type="text" placeholder="Año" />
+            <Form.Control 
+              type="text"
+              placeholder="Año"
+              value={nuevoLibro.anio}   
+              onChange={handleLibro}
+              name="anio"
+          />
           </Form.Group>
 
           <Form.Group controlId="formGenero">
@@ -36,15 +70,34 @@ const FormPublicacion = () => {
           </Form.Group>
 
           <Form.Group controlId="formURLPortada">
-            <Form.Control type="text" placeholder="URL Portada / Imagen"/>
+            <Form.Control 
+              type="text"
+              placeholder="URL Portada / Imagen"
+              value={nuevoLibro.url_imagen}
+              onChange={handleLibro}
+              name="url_imagen"
+            />
           </Form.Group>
 
           <Form.Group controlId="formPrecio">
-            <Form.Control type="text" placeholder="Precio"/>
+            <Form.Control 
+              type="text"
+              placeholder="Precio"
+              value={nuevoLibro.precio}    
+              onChange={handleLibro}
+              name="precio"
+          />
           </Form.Group>
 
           <Form.Group controlId="formResena">
-            <Form.Control as="textarea" rows={5} placeholder="Reseña / Descripción / Detalles" />
+            <Form.Control 
+              as="textarea" 
+              rows={5} 
+              placeholder="Reseña / Descripción / Detalles"
+              value={nuevoLibro.descripcion}
+              onChange={handleLibro}
+              name="descripcion"
+            />
           </Form.Group>
 
           <Button variant="dark" className='w-100'>Publicar</Button>

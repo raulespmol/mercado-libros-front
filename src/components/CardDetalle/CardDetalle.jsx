@@ -1,46 +1,110 @@
 import React from 'react'
-import { Badge, Button, Card, Col, Row, Stack } from 'react-bootstrap'
+import { Badge, Button, Card, CardGroup, Col, Image, Row, Stack } from 'react-bootstrap'
 import "./style.css"
 import placeholder from "../../assets/img/placeholder.jpg"
 
-const CardDetalle = ({id}) => {
-
+const CardDetalle = ({preview = false, libro, nuevoLibro}) => {
+  //prop preview se usará:
+  //True: desde la vista CrearPublicacion /libros/nuevo | usa el objeto 'libro'
+  //False: vista DetallePublicacion /libros/:id | usa el objeto 'nuevoLibro'
   return (
-    <Row className='pt-3 mb-3 justify-content-center'>
-      <Col lg={4} xl={4}>
-        <Card>
-          <Card.Img src={placeholder}/>
-        </Card>        
-      </Col>
-      <Col lg={6} xl={5}>
+    <CardGroup className='w-100 d-flex flex-row'>
+      <Card className='d-flex flex-row'>
+        <Image
+          src={!preview 
+              ? libro.url_imagen
+              : nuevoLibro.url_imagen
+              ? nuevoLibro.url_imagen
+              : placeholder 
+            }
+          rounded
+        />
 
-        <h2>Publicacion {id}</h2>
-        <p className='mb-3'>Autor</p>
+        <Card.Body>
+          <h2>
+            {!preview
+              ? libro.titulo
+              : nuevoLibro.titulo 
+              ? nuevoLibro.titulo  
+              : "Título" //mostrará "Titulo" mientras el input de FormPublicacion esté vacío
+            }
+          </h2>
 
-        <hr />
+          <p className='mb-3'>
+            {!preview 
+              ? libro.autor
+              : nuevoLibro.autor
+              ? nuevoLibro.autor
+              : "Autor"
+            }
+          </p>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate error deserunt quos, reiciendis architecto sint at labore quibusdam corporis, aperiam adipisci iste molestias aut. Nostrum quaerat tempora esse voluptate amet!</p>
-        <Stack direction="horizontal" gap={2}>
-          <Badge bg="secondary">Genero</Badge>
-          <Badge bg="secondary">Editorial</Badge>
-        </Stack>
+          <hr />
 
-        <hr />
+          <p>
+            {!preview 
+              ? libro.descripcion
+              : nuevoLibro.descripcion
+              ? nuevoLibro.descripcion
+              : "Descripción"
+            }
+          </p>
 
-        <span>publicado por</span>
-        <p className='usuario'>Usuario</p>
+          <Stack direction="horizontal" gap={2}>
+            <Badge bg="secondary">
+              {!preview
+                ? libro.genero
+                : "Genero"
+              }
+            </Badge>
+            <Badge bg="secondary">
+              {!preview 
+                ? libro.editorial
+                : nuevoLibro.editorial
+                ? nuevoLibro.editorial
+                : "Editorial"
+              }
+            </Badge>
+            <Badge bg="secondary">
+              {!preview 
+                ? libro.anio
+                : nuevoLibro.anio
+                ? nuevoLibro.anio
+                : "Año"
+              }
+            </Badge>
+          </Stack>
 
-        <hr />
+          <hr />
 
-        <div className='d-flex justify-content-between align-items-center'>
-          <span className='precio'>$9.999</span>
-          <div className='d-flex gap-2'>
-            <Button variant='warning'>+ Favoritos</Button>
-            <Button variant='success'>+ Carrito</Button>
+          <span>publicado por</span>
+          <p className='usuario'>
+            {!preview 
+              ? libro.usuario
+              : "Usuario"
+            }
+          </p> 
+
+          <hr />
+
+          <div className='d-flex justify-content-between align-items-center'>
+            <span className='precio'>
+              {!preview 
+                ? libro.precio
+                : nuevoLibro.precio
+                ? nuevoLibro.precio
+                : "$0"
+              }
+            </span>
+
+            <div className='d-flex gap-2'>
+              <Button variant='warning' disabled={preview}>+ Favoritos</Button>
+              <Button variant='success' disabled={preview}>+ Carrito</Button>
+            </div>
           </div>
-        </div>
-      </Col>
-    </Row>
+        </Card.Body>
+      </Card>
+    </CardGroup>
   )
 }
 
