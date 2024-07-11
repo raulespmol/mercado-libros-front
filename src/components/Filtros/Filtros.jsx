@@ -1,7 +1,10 @@
 import React from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
+// import { useNavigate } from 'react-router-dom'
 
 const Filtros = () => {
+  // const navigate = useNavigate()
+
   return (
     <Card className="sidebar">
       <Card.Body className='filtros'>
@@ -58,6 +61,7 @@ const Filtros = () => {
           <Button 
             variant="dark"
             className='w-100'
+            // onClick={() => navigate('./?genero=ficcion')}
           >
             Aplicar
           </Button>
