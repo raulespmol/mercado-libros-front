@@ -10,7 +10,7 @@ export const FavoritosProvider = ({ children }) => {
 
   const fetchLibros = async () => {
     try {
-        const response = await fetch("/libros.json");
+        const response = await fetch(`${BASE_URL}/api/libros/get-all`);
         if (!response) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
