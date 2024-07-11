@@ -2,68 +2,92 @@ import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
 import { useContext, useState } from "react";
 import "./style.css";
-// import { UserContext } from "../providers/UserProvider";
+import { validateNuevoUsuario } from "../../utils/validateUser";
+import Alert from "../../components/Alert/Alert";
+import { UserContext } from "../../context/UserProvider";
 
 const Registro = () => {
-  // const { registerWithEmailAndPassword } = useContext(UserContext);
+  const { registerWithEmailAndPassword } = useContext(UserContext);
 
-  const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmarPassword, setConfirmarPassword] = useState("");
+  const [alert, setAlert] = useState({
+    msg: "",
+    color: ""
+  })
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const response = await registerWithEmailAndPassword(nombre, email, password, confirmarPassword);
-  //   console.log(response)
-  //   alert(response?.message || "Something went wrong");
-  // };
+  const [nuevoUsuario, setNuevoUsuario] = useState({
+    nombre: "",
+    email: "",
+    password: "",
+    confirmarPassword: ""
+  })
+
+  const handleNuevoUsuario = (e) => {
+    const {name, value} = e.target
+
+    setNuevoUsuario({
+      ...nuevoUsuario, 
+      [name]: value
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if( validateNuevoUsuario(nuevoUsuario, setAlert) ){
+      const {nombre, email, password} = nuevoUsuario
+      console.log('submit');
+      const response = await registerWithEmailAndPassword(nombre, email, password);
+      console.log(response)
+    }
+    // alert(response?.message || "Something went wrong");
+  };
 
   return (
     <div className="container-fluid bg-light d-flex justify-content-center p-5">
       <div className="sectionMain bg-white p-5 border border-1 border-dark-subtle rounded-3">
         <div className="px-3 mx-4 mb-5">
-          <h1>¡Te damos la bienvenida a Mercadolibros Chile!</h1>
+          <h1>¡Te damos la bienvenida a MercadoLibros Chile!</h1>
           <h3>Crea tu cuenta y empieza a vender o comprar libros a miles de personas.</h3>
         </div>
-        {/* <form onSubmit={handleSubmit}> */}
-        <form>
+        <form onSubmit={handleSubmit}>
+        {/* <form> */}
           <Form.Control
             type="text"
-            id="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            name="nombre"
+            value={nuevoUsuario.nombre}
+            onChange={handleNuevoUsuario}
             className="form-control"
             placeholder="Nombre"
           />
           <Form.Control
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
-              placeholder="Correo electrónico de contacto"
+            type="email"
+            name="email"
+            value={nuevoUsuario.email}
+            onChange={handleNuevoUsuario}
+            className="form-control"
+            placeholder="Correo electrónico de contacto"
           />
           <Form.Control
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
-              placeholder="Contraseña"
+            type="password"
+            name="password"
+            value={nuevoUsuario.password}
+            onChange={handleNuevoUsuario}
+            className="form-control"
+            placeholder="Contraseña"
           />
           <Form.Control
-              type="password"
-              id="confirmarPassword"
-              value={confirmarPassword}
-              onChange={(e) => setConfirmarPassword(e.target.value)}
-              className="form-control"
-              placeholder="Confirma tu contraseña"
+            type="password"
+            name="confirmarPassword"
+            value={nuevoUsuario.confirmarPassword}
+            onChange={handleNuevoUsuario}
+            className="form-control"
+            placeholder="Confirma tu contraseña"
           />
           <Button variant="success"  type="submit" className="w-100 rounded-5 fw-bold">
             Crear cuenta
           </Button>
           <hr></hr>
+          {alert.msg && <Alert msg={alert.msg} color={alert.color}/>}
           <div className="goLogin mt-3">
             <p>
               ¿Ya tienes cuenta? <a href="/login">inicia tu sesión</a>

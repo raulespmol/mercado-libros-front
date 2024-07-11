@@ -16,8 +16,8 @@ const UserProvider = ({ children }) => {
         } else {
           localStorage.removeItem("token");
         }
-      }, [token]);
-    }, 4000);
+      }, 4000);
+    }, [token]);
     
   // useEffect(() => {
   //   if (token) {
@@ -40,11 +40,11 @@ const UserProvider = ({ children }) => {
     return data;
   };
 
-  const registerWithEmailAndPassword = async (username, email, password, confirmarPassword) => {
-    const response = await fetch(`${BASE_URL}/users/register`, {
+  const registerWithEmailAndPassword = async (nombre, email, password) => {
+    const response = await fetch(`${BASE_URL}/usuarios/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ nombre, email, password }),
     });
     const data = await response.json();
     console.log('DATA:',data)
