@@ -10,25 +10,15 @@ const UserProvider = ({ children }) => {
   const [token, setToken] = useState(initialStateToken);
 
   useEffect(() => {
-    setTimeout(() => {
-        if (token) {
-          localStorage.setItem("token", token);
-        } else {
-          localStorage.removeItem("token");
-        }
-      }, 4000);
-    }, [token]);
-    
-  // useEffect(() => {
-  //   if (token) {
-  //     localStorage.setItem("token", token);
-  //   } else {
-  //     localStorage.removeItem("token");
-  //   }
-  // }, [token]);
+    if (token) {
+      localStorage.setItem("token", token);
+    } else {
+      localStorage.removeItem("token");
+    }
+  }, [token]);
 
   const loginWithEmailAndPassword = async (email, password) => {
-    const response = await fetch(`${BASE_URL}/users/login`, {
+    const response = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -51,13 +41,8 @@ const UserProvider = ({ children }) => {
     return data;
   };
 
-  // const logout = () => {
-  //   setToken(null);
-  // };
   const logout = () => {
-    setTimeout(() => {
-      setToken(null);
-    }, 3000);
+    setToken(null);
   };
   
   return (
