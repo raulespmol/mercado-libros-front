@@ -37,6 +37,14 @@ function Navbar() {
               <div>Ingresar</div>
             </div>
           </NavLink>
+          <NavLink to="/perfil" className={setActiveClass}>
+            <div className="d-flex text-white">
+              <div>
+                <i className="fa-solid fa-user me-1"></i>
+              </div>
+              <div>Perfil</div>
+            </div>
+          </NavLink>
           <NavLink to="/libros" className={setActiveClass}>
             <div className="d-flex text-white">
               <div>

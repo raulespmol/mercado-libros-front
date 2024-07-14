@@ -1,5 +1,7 @@
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import avatarPlaceholder from "../assets/img/avatar-placeholder.jpg"
+import { useContext } from "react"
+import { UserContext } from "../context/UserProvider"
 
 const MisDatos = () => {
   const imgStyle = {
@@ -8,11 +10,13 @@ const MisDatos = () => {
     borderRadius: "50%"
   }
 
+  const {usuario} = useContext(UserContext)
+
   return (
     <Container>
       <Row className='pt-3 mb-3 justify-content-center'>
         <Col sm={10}>
-          <h2 className="mb-4">Bienvenido Usuario</h2>
+          <h2 className="mb-4">Bienvenido {usuario ? usuario.nombre : "Usuario"}</h2>
           <Card>
             <Card.Body className="d-flex flex-column p-3">
               <div className="d-flex gap-3 mb-3">
@@ -22,11 +26,20 @@ const MisDatos = () => {
 
                   <Form.Group controlId="nombreUsuario" className="flex-grow-1">
                     <Form.Label className="m-0">Nombre</Form.Label>
-                    <Form.Control type="text" placeholder="Nombre" />
+                    <Form.Control 
+                      type="text" 
+                      placeholder="Nombre" 
+                      // value={usuario ? usuario.nombre : ""}
+                    />
                   </Form.Group>
+
                   <Form.Group controlId="apellidoUsuario">
                     <Form.Label className="m-0">Apellido</Form.Label>
-                    <Form.Control type="text" placeholder="Apellido" />
+                    <Form.Control 
+                      type="text" 
+                      placeholder="Apellido" 
+                      // value={usuario ? usuario.apellido : ""}
+                    />
                   </Form.Group>
                 </div>
               </div>
@@ -41,7 +54,12 @@ const MisDatos = () => {
                   </Form.Group>
                   <Form.Group controlId="correoUsuario" className="flex-grow-1">
                     <Form.Label className="m-0">Correo</Form.Label>
-                    <Form.Control type="text" placeholder="usuario@correo.cl" className="mb-0"/>
+                    <Form.Control 
+                      type="text" 
+                      placeholder="usuario@correo.cl" 
+                      className="mb-0" 
+                      // value={usuario && usuario.email}
+                    />
                   </Form.Group>
                 </div>
               </div>

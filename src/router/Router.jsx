@@ -4,19 +4,20 @@ import Footer from "../components/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Views
-import Home from "../views/Home";
-import Registro from "../views/Registro/Registro";
-import LoginPage from "../views/Login/Login";
-import Tienda from "../views/Tienda";
-import DetallePublicacion from "../views/DetallePublicacion";
-import Carrito from "../views/Carrito";
-import NotFound from "../views/NotFound";
-import CrearPublicacion from "../views/CrearPublicacion";
-import Perfil from "../views/Perfil";
-import MisPublicaciones from "../views/MisPublicaciones";
-import Favoritos from "../views/Favoritos";
-import MisDatos from "../views/MisDatos";
-// import { Navbar } from "react-bootstrap"
+import {
+  Home,
+  Registro,
+  LoginPage,
+  Tienda,
+  DetallePublicacion,
+  Carrito,
+  NotFound,
+  CrearPublicacion,
+  Perfil,
+  MisPublicaciones,
+  Favoritos,
+  MisDatos
+} from "../views";
 
 function RouterLinks() {
   return (

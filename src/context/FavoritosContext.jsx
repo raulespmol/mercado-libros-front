@@ -21,9 +21,9 @@ export const FavoritosProvider = ({ children }) => {
     }
 };
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetchLibros();
-  }, []);
+  }, []); */
 
   return (
     <FavoritosContext.Provider value={{ libros, setLibros }}>

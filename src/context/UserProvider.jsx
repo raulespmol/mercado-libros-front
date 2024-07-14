@@ -8,10 +8,23 @@ const initialStateToken = localStorage.getItem("token") || null;
 
 const UserProvider = ({ children }) => {
   const [token, setToken] = useState(initialStateToken);
+  const [usuario, setUsuario] = useState(null)
+  
+  const getDataUsuario = async (token) => {
+    const response = await fetch(`${BASE_URL}/usuarios/get`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` }
+    })
+
+    const [data] = await response.json()
+    setUsuario(data)
+    console.log(usuario);
+  }
 
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
+      getDataUsuario(token)
     } else {
       localStorage.removeItem("token");
     }
@@ -49,6 +62,7 @@ const UserProvider = ({ children }) => {
       value={{
         loginWithEmailAndPassword,
         registerWithEmailAndPassword,
+        usuario,
         token,
         logout,
       }}
