@@ -1,16 +1,39 @@
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import avatarPlaceholder from "../assets/img/avatar-placeholder.jpg"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/UserProvider"
 
 const MisDatos = () => {
+  const {usuario} = useContext(UserContext)
+
   const imgStyle = {
     height: "200px",
     width: "200px",
     borderRadius: "50%"
   }
 
-  const {usuario} = useContext(UserContext)
+  const [datosUsuario, setDatosUsuario] = useState({
+      nombre: '',
+      apellidos: '',
+      email: '',
+      telefono: '',
+      imagen: ''
+    })
+
+  useEffect(() => {
+    if(usuario){
+      setDatosUsuario(usuario)
+    }
+  }, [usuario])
+
+  const handleDatos = (e) => {
+    const {name, value} = e.target
+    setDatosUsuario({
+      ...datosUsuario,
+      [name]: value
+    })
+  }
+
 
   return (
     <Container>
@@ -20,25 +43,29 @@ const MisDatos = () => {
           <Card>
             <Card.Body className="d-flex flex-column p-3">
               <div className="d-flex gap-3 mb-3">
-                <img src={avatarPlaceholder} style={imgStyle}/>
+                <img src={usuario ? usuario.imagen : avatarPlaceholder} style={imgStyle}/>
                 <div className="d-flex flex-column w-100">
                   <h5 className="fw-semibold">Datos Personales</h5>
 
                   <Form.Group controlId="nombreUsuario" className="flex-grow-1">
                     <Form.Label className="m-0">Nombre</Form.Label>
                     <Form.Control 
+                      name="nombre"
                       type="text" 
                       placeholder="Nombre" 
-                      // value={usuario ? usuario.nombre : ""}
+                      value={datosUsuario.nombre ? datosUsuario.nombre : ""}
+                      onChange={handleDatos}
                     />
                   </Form.Group>
 
                   <Form.Group controlId="apellidoUsuario">
                     <Form.Label className="m-0">Apellido</Form.Label>
                     <Form.Control 
+                      name="apellidos"
                       type="text" 
                       placeholder="Apellido" 
-                      // value={usuario ? usuario.apellido : ""}
+                      value={datosUsuario.apellidos ? datosUsuario.apellidos : ""}
+                      onChange={handleDatos}
                     />
                   </Form.Group>
                 </div>
@@ -50,15 +77,24 @@ const MisDatos = () => {
                 <div className="d-flex gap-2">
                   <Form.Group controlId="telefonoUsuario" className="flex-grow-1">
                     <Form.Label className="m-0">Teléfono</Form.Label>
-                    <Form.Control type="text" placeholder="+569 1234 5678" className="mb-0"/>
+                    <Form.Control 
+                      name="telefono"
+                      type="text" 
+                      placeholder="+569 1234 5678" 
+                      className="mb-0"
+                      value={datosUsuario.telefono ? datosUsuario.telefono : ""}
+                      onChange={handleDatos}
+                    />
                   </Form.Group>
                   <Form.Group controlId="correoUsuario" className="flex-grow-1">
                     <Form.Label className="m-0">Correo</Form.Label>
                     <Form.Control 
+                      name="email"
                       type="text" 
                       placeholder="usuario@correo.cl" 
                       className="mb-0" 
-                      // value={usuario && usuario.email}
+                      value={datosUsuario.email ? datosUsuario.email : ""}
+                      onChange={handleDatos}
                     />
                   </Form.Group>
                 </div>

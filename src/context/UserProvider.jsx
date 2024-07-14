@@ -18,7 +18,6 @@ const UserProvider = ({ children }) => {
 
     const [data] = await response.json()
     setUsuario(data)
-    console.log(usuario);
   }
 
   useEffect(() => {
@@ -55,6 +54,7 @@ const UserProvider = ({ children }) => {
 
   const logout = () => {
     setToken(null);
+    setUsuario(null)
   };
   
   return (

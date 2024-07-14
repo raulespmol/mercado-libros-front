@@ -5,9 +5,12 @@ import "./style.css";
 import { UserContext } from "../../context/UserProvider";
 import Alert from "../../components/Alert/Alert";
 import Loader from "../../components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const { loginWithEmailAndPassword } = useContext(UserContext);
+  const navigate = useNavigate()
+
   const [credenciales, setCredenciales] = useState({
     email: "",
     password: ""
@@ -51,6 +54,10 @@ const LoginPage = () => {
 
     setCredenciales({email: "", password: ""})
     setIsSubmitting(false)
+    
+    if(response.token){
+      navigate('/perfil')
+    }
   }
 
   return (
