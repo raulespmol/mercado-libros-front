@@ -5,14 +5,10 @@ import "./style.css";
 import { validateNuevoUsuario } from "../../utils/validateUser";
 import Alert from "../../components/Alert/Alert";
 import { UserContext } from "../../context/UserProvider";
+import Loader from "../../components/Loader/Loader";
 
 const Registro = () => {
   const { registerWithEmailAndPassword } = useContext(UserContext);
-
-  const [alert, setAlert] = useState({
-    msg: "",
-    color: ""
-  })
 
   const [nuevoUsuario, setNuevoUsuario] = useState({
     nombre: "",
@@ -20,6 +16,13 @@ const Registro = () => {
     password: "",
     confirmarPassword: ""
   })
+
+  const [alert, setAlert] = useState({
+    msg: "",
+    color: ""
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleNuevoUsuario = (e) => {
     const {name, value} = e.target
@@ -34,12 +37,29 @@ const Registro = () => {
     e.preventDefault();
 
     if( validateNuevoUsuario(nuevoUsuario, setAlert) ){
+      setIsSubmitting(true)
       const {nombre, email, password} = nuevoUsuario
-      console.log('submit');
       const response = await registerWithEmailAndPassword(nombre, email, password);
-      console.log(response)
+      
+      if(response.error){
+        setAlert({msg: response.msg, color: 'danger'})
+        setIsSubmitting(false)
+        return
+      }
+
+      setAlert({msg: 'Registro exitoso!', color: 'success'})
+      setNuevoUsuario({
+        nombre: "",
+        email: "",
+        password: "",
+        confirmarPassword: ""
+      })
+      setIsSubmitting(false)
+
+      setTimeout(() => {
+        setAlert({msg: '', color: ''})
+      }, 3000);
     }
-    // alert(response?.message || "Something went wrong");
   };
 
   return (
@@ -50,7 +70,6 @@ const Registro = () => {
           <h3>Crea tu cuenta y empieza a vender o comprar libros a miles de personas.</h3>
         </div>
         <form onSubmit={handleSubmit}>
-        {/* <form> */}
           <Form.Control
             type="text"
             name="nombre"
@@ -83,16 +102,23 @@ const Registro = () => {
             className="form-control"
             placeholder="Confirma tu contraseña"
           />
-          <Button variant="success"  type="submit" className="w-100 rounded-5 fw-bold">
-            Crear cuenta
+          <Button 
+            variant="success" 
+            type="submit" 
+            className="w-100 rounded-5 fw-bold"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? <Loader /> : "Crear cuenta"}
           </Button>
+
           <hr></hr>
-          {alert.msg && <Alert msg={alert.msg} color={alert.color}/>}
+            {alert.msg && <Alert msg={alert.msg} color={alert.color}/>}
           <div className="goLogin mt-3">
             <p>
               ¿Ya tienes cuenta? <a href="/login">inicia tu sesión</a>
             </p>
           </div>
+
         </form>
       </div>
     </div>

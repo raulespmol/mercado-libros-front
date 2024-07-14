@@ -5,6 +5,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import CardTienda from "../components/CardTienda/CardTienda";
 import Filtros from "../components/Filtros/Filtros";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader/Loader";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -62,7 +63,7 @@ const Tienda = () => {
         <Container fluid className="px-0">
           <Row>
             {isLoading
-              ? "Cargando" //Reemplazar por alguna animacion
+              ? <Loader color="#333" size="30px" density="5px"/>
               : libros.map(libro => (
                 <Col key={libro.libro_id} sm={6} md={4} lg={3} className="mb-4">
                   <CardTienda

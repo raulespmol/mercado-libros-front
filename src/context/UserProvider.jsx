@@ -37,7 +37,6 @@ const UserProvider = ({ children }) => {
       body: JSON.stringify({ nombre, email, password }),
     });
     const data = await response.json();
-    console.log('DATA:',data)
     return data;
   };
 

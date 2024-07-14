@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import "./style.css";
 import { UserContext } from "../../context/UserProvider";
 import Alert from "../../components/Alert/Alert";
+import Loader from "../../components/Loader/Loader";
 
 const LoginPage = () => {
   const { loginWithEmailAndPassword } = useContext(UserContext);
@@ -43,8 +44,12 @@ const LoginPage = () => {
       setTimeout(() => {
         setAlert({msg: '', color: ''});
       }, 4000);
+
+      setIsSubmitting(false)
+      return
     }
 
+    setCredenciales({email: "", password: ""})
     setIsSubmitting(false)
   }
 
@@ -76,7 +81,7 @@ const LoginPage = () => {
             className="w-100 rounded-5 fw-bold"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Cargando..." : "Iniciar Sesión"}
+            {isSubmitting ? <Loader /> : "Iniciar Sesión"}
           </Button>
           <div className="goRegister mt-3">
             <hr></hr>

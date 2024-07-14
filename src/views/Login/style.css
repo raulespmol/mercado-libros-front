@@ -20,6 +20,13 @@
             border-radius: 50px;
         }
 
+        .btn{
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .goRegister{
             a {
                 color:#727272;

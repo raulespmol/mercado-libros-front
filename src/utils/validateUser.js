@@ -22,11 +22,5 @@ export const validateNuevoUsuario = (usuario, setAlert) => {
     return
   }
 
-  setAlert({msg: 'Registro exitoso!', color: 'success'})
-
-  setTimeout(() => {
-    setAlert({msg: '', color: ''})
-  }, 3000);
-
   return true
 }
