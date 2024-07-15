@@ -1,13 +1,43 @@
 //Components
-import RouterLinks from "./router/Router"
-import './App.css'
 import UserProvider from "./context/UserProvider"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import { Carrito, DetallePublicacion, Home, LoginPage, NotFound, Registro, Tienda } from './views'
+
+//Estilos
+import './App.css'
+import PrivateRoutes from "./router/PrivateRoutes"
+import ProtectRoutes from "./router/ProtectRoutes"
 
 function App() {
 
   return (
     <UserProvider>
-      <RouterLinks />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+
+          <Route path="/" element={<Home />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/libros" element={<Tienda />} />
+          <Route path="/libros/libro/:id" element={<DetallePublicacion />} />
+          <Route path="/carrito" element={<Carrito />} />
+
+          <Route path="/*" element={
+            <ProtectRoutes>
+              <PrivateRoutes />
+            </ProtectRoutes>
+            }
+          />
+
+          <Route path="*" element={<NotFound />} />
+
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
     </UserProvider>
   )
 }

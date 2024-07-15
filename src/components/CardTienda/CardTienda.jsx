@@ -36,7 +36,7 @@ const CardTienda = ({id, titulo, autor, genero, precio, usuario, img}) => {
         <Button 
           variant="dark" 
           size='sm'
-          onClick={() => navigate(`/libros/${id}`)}
+          onClick={() => navigate(`/libros/libro/${id}`)}
         >
           Ver Detalles
         </Button>
