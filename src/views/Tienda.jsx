@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 // import { useContext } from "react";
 // import { FavoritosContext } from "../providers/FavoritosContext";
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -6,6 +6,7 @@ import CardTienda from "../components/CardTienda/CardTienda";
 import Filtros from "../components/Filtros/Filtros";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
+import { SearchContext } from "../context/SearchContext";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -15,6 +16,7 @@ const Tienda = () => {
 
   const [libros, setLibros] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
+  const { search } = useContext(SearchContext);
 
   const getLibros = async () => {
     try {
@@ -46,6 +48,11 @@ const Tienda = () => {
   //   setLibros(nuevaLista);
   // };
 
+  const filteredLibros = libros.filter(libro =>
+    libro.titulo.toLowerCase().includes(search.toLowerCase()) ||
+    libro.autor.toLowerCase().includes(search.toLowerCase()) 
+  );
+
   return (
     <Container fluid className="p-0 d-flex">
       <Filtros />
@@ -64,7 +71,7 @@ const Tienda = () => {
           <Row>
             {isLoading
               ? <Loader color="#333" size="30px" density="5px"/>
-              : libros.map(libro => (
+              : filteredLibros.map(libro => (
                 <Col key={libro.libro_id} sm={6} md={4} lg={3} className="mb-4">
                   <CardTienda
                     id={libro.libro_id}
