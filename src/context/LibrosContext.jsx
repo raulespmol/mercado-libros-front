@@ -33,13 +33,28 @@ export const LibrosProvider = ({ children }) => {
     }
   }
 
+  const postLibro = async (nuevoLibro) => {
+    try {
+      const response = await fetch(`${ENDPOINT.libros}/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nuevoLibro),
+      });
+  
+      const data = await response.json();
+      return data
+    } catch (error) {
+        console.log("Error al postear libro", error)
+    }
+  }
+
   useEffect(() => {
     fetchLibros()
     fetchGeneros()
   }, []);
 
   return (
-    <LibrosContext.Provider value={{ libros, generos }}>
+    <LibrosContext.Provider value={{ libros, generos, postLibro }}>
       {children}
     </LibrosContext.Provider>
   );
