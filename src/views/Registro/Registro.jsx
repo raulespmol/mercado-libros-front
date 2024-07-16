@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import "./style.css";
 import { validateNuevoUsuario } from "../../utils/validateUser";
 import Alert from "../../components/Alert/Alert";
-import { UserContext } from "../../context/UserProvider";
+import { UserContext } from "../../context/UserContext";
 import Loader from "../../components/Loader/Loader";
 
 const Registro = () => {

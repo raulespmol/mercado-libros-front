@@ -1,7 +1,7 @@
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import avatarPlaceholder from "../assets/img/avatar-placeholder.jpg"
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../context/UserProvider"
+import { UserContext } from "../context/UserContext"
 
 const MisDatos = () => {
   const {usuario} = useContext(UserContext)

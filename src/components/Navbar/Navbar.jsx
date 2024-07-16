@@ -5,7 +5,7 @@ import { Navbar as BNav, /* Form */ } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 import { useContext } from "react";
-import { UserContext } from "../../context/UserProvider";
+import { UserContext } from "../../context/UserContext";
 
 function Navbar() {
   const {token} = useContext(UserContext)

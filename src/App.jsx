@@ -1,9 +1,9 @@
 //Components
-import UserProvider from "./context/UserProvider";
-import { SearchProvider } from "./context/SearchContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+
+//Vistas
 import {
   Carrito,
   DetallePublicacion,
@@ -14,41 +14,44 @@ import {
   Tienda,
 } from "./views";
 
-//Estilos
-import "./App.css";
+//Rutas
 import PrivateRoutes from "./router/PrivateRoutes";
 import ProtectRoutes from "./router/ProtectRoutes";
 
+//Context
+import AppProvider from "./context/AppProvider";
+
+//Estilos
+import "./App.css";
+
 function App() {
   return (
-    <UserProvider>
-      <BrowserRouter>
-        <SearchProvider>
-          <Navbar />
+    <BrowserRouter>
+      <AppProvider>
+        <Navbar />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/registro" element={<Registro />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/libros" element={<Tienda />} />
-            <Route path="/libros/libro/:id" element={<DetallePublicacion />} />
-            <Route path="/carrito" element={<Carrito />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/libros" element={<Tienda />} />
+          <Route path="/libros/libro/:id" element={<DetallePublicacion />} />
+          <Route path="/carrito" element={<Carrito />} />
 
-            <Route
-              path="/*"
-              element={
-                <ProtectRoutes>
-                  <PrivateRoutes />
-                </ProtectRoutes>
-              }
-            />
+          <Route
+            path="/*"
+            element={
+              <ProtectRoutes>
+                <PrivateRoutes />
+              </ProtectRoutes>
+            }
+          />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </SearchProvider>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
         <Footer />
-      </BrowserRouter>
-    </UserProvider>
+      </AppProvider>
+    </BrowserRouter>
   );
 }
 

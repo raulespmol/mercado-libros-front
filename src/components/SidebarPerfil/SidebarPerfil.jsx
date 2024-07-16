@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import avatarPlaceholder from "../../assets/img/avatar-placeholder.jpg"
 import "./style.css"
 import { useContext } from "react"
-import { UserContext } from "../../context/UserProvider"
+import { UserContext } from "../../context/UserContext"
 
 const SidebarPerfil = () => {
   const {usuario, logout} = useContext(UserContext)
