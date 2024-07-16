@@ -15,7 +15,7 @@ const Filtros = () => {
   };
 
   return (
-    <Card className="sidebar px-2 bg-light">
+    <Card className="sidebar pt-4 px-2 bg-light rounded-0">
       <Card.Body className='filtros'>
 
         <h2 className="mb-4 text-center">Filtros</h2>
