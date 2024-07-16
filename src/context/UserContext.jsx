@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
 
@@ -9,6 +10,8 @@ const initialStateToken = localStorage.getItem("token") || null;
 const UserProvider = ({ children }) => {
   const [token, setToken] = useState(initialStateToken);
   const [usuario, setUsuario] = useState(null)
+
+  const navigate = useNavigate()
   
   const getDataUsuario = async (token) => {
     const response = await fetch(`${BASE_URL}/usuarios/get`, {
@@ -55,6 +58,7 @@ const UserProvider = ({ children }) => {
   const logout = () => {
     setToken(null);
     setUsuario(null)
+    navigate('/')
   };
   
   return (

@@ -1,18 +1,19 @@
-import { Button, Card, Image } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
 import { NavLink, useNavigate } from "react-router-dom"
 import avatarPlaceholder from "../../assets/img/avatar-placeholder.jpg"
 import "./style.css"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { UserContext } from "../../context/UserContext"
+import LogoutModal from "../LogoutModal/LogoutModal"
 
 const SidebarPerfil = () => {
   const {usuario, logout} = useContext(UserContext)
+
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate()
 
-  const cerrarSesion = () => {
-    logout()
-    navigate('/')
-  }
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
   return (
     <Card className="text-center sidebar">
@@ -39,10 +40,16 @@ const SidebarPerfil = () => {
         <Button 
           variant="outline-dark" 
           className='w-100'
-          onClick={cerrarSesion}
+          onClick={handleShowModal}
         >
           Cerrar sesión
         </Button>
+
+        <LogoutModal 
+          show={showModal} 
+          handleClose={handleCloseModal}
+          logout={logout}
+        />
       </Card.Body>
     </Card>
   )
