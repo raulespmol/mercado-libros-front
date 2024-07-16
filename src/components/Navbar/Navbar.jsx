@@ -57,11 +57,6 @@ function Navbar() {
           </NavLink>
         </Nav>
 
-        {/* <InputGroup style={{ width: '400px' }} >
-          <Form.Control type="search" placeholder="Buscar un libro" className="text-black bg-light form-control-sm m-0 border border-end-0 rounded-start-5"/>
-          <InputGroup.Text id="basic-addon1" className="rounded-end-5 iconSearch"><i className="fa-solid fa-magnifying-glass"></i></InputGroup.Text>
-        </InputGroup> */}
-
         <Nav>
           {userNav()}
 
@@ -77,7 +72,7 @@ function Navbar() {
           <NavLink to="/carrito" className={setActiveClass}>
             <div className="d-flex text-white">
               <div>
-                <i className="fa-solid fa-cart-shopping"></i>
+                <i className="fa-solid fa-cart-shopping me-1"></i>
               </div>
               <div>Carrito</div>
             </div>

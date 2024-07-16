@@ -5,7 +5,7 @@ import "./style.css";
 import { useState } from "react";
 import placeholder from "../../assets/img/placeholder.jpg";
 import { Badge } from "react-bootstrap";
-import ModalDetalle from "../Modal/DetallePublicacion";
+import ModalDetalle from "../Modal/ModalDetallePublicacion";
 
 //valores por defecto para renderizar mientras se obtienen datos desde el back
 //el id de la publicacion se usara para navegar al detalle '/libros/:id'

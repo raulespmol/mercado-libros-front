@@ -23,10 +23,12 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
               <h2>{preview ? nuevoLibro.titulo : libro.titulo}</h2>
             </div>
             <div>
+              {!preview && 
               <Modal.Header
                 closeButton
                 className="border-bottom-0"
               ></Modal.Header>
+            }
             </div>
           </div>
 
