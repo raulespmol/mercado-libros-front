@@ -1,15 +1,31 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
 // import { useNavigate } from 'react-router-dom'
+import Buscador from '../Buscador'
+import { SearchContext } from '../../context/SearchContext';
+
 
 const Filtros = () => {
   // const navigate = useNavigate()
 
+  const { search, setSearch } = useContext(SearchContext);
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
-    <Card className="sidebar">
+    <Card className="sidebar px-2 bg-light">
       <Card.Body className='filtros'>
 
         <h2 className="mb-4 text-center">Filtros</h2>
+
+        <Buscador
+          placeholder="Buscar por título o autor..."
+          search={search}
+          handleChange={handleChange}
+          // onClick={() => console.log('Buscar', search)}
+        />
 
         <Form className='w-100  position-sticky top-0'>
 

@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
-import InputGroup from 'react-bootstrap/InputGroup';
+// import InputGroup from 'react-bootstrap/InputGroup';
 import Nav from "react-bootstrap/Nav";
-import { Navbar as BNav, Form } from "react-bootstrap";
+import { Navbar as BNav, /* Form */ } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 import { useContext } from "react";
@@ -56,10 +56,10 @@ function Navbar() {
           </NavLink>
         </Nav>
 
-        <InputGroup style={{ width: '400px' }} >
+        {/* <InputGroup style={{ width: '400px' }} >
           <Form.Control type="search" placeholder="Buscar un libro" className="text-black bg-light form-control-sm m-0 border border-end-0 rounded-start-5"/>
           <InputGroup.Text id="basic-addon1" className="rounded-end-5 iconSearch"><i className="fa-solid fa-magnifying-glass"></i></InputGroup.Text>
-        </InputGroup>
+        </InputGroup> */}
 
         <Nav>
           {userNav()}
