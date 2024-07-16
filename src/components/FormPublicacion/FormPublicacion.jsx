@@ -1,23 +1,54 @@
-import React from 'react';
-import './style.css';
+import React, { useContext, useState } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
+import { LibrosContext } from '../../context/LibrosContext';
+import { UserContext } from '../../context/UserContext';
+import Loader from '../Loader/Loader';
+import './style.css';
 
 const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
+  const { usuario } = useContext(UserContext)
+  const { generos, postLibro } = useContext(LibrosContext)
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleLibro = (e) => {
     const {name, value} = e.target
 
     setNuevoLibro({
+      usuario: usuario.usuario_id,
       ...nuevoLibro, 
       [name]: value
     })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    try {
+      const response = await postLibro(nuevoLibro);
+      if(response.data){
+        console.log(response.msg); //Mostrar en un componente Alert
+        setNuevoLibro({
+          titulo: "",
+          autor: "",
+          editorial: "",
+          anio: "",
+          genero: "",
+          url_imagen: "",
+          precio: "",
+          descripcion: ""
+        })
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <Card className="text-center sidebar">
       <Card.Body className='formulario'>
         <h2 className="mb-4">Crear Publicación</h2>
-        <Form className='w-100'>
+        <Form className='w-100' onSubmit={handleSubmit}>
           <Form.Group controlId="formTitulo">
             <Form.Control 
               type="text"
@@ -59,13 +90,22 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
           </Form.Group>
 
           <Form.Group controlId="formGenero">
-            <Form.Select>
-              <option>Género</option>
-              <option>Ficción</option>
-              <option>No Ficción</option>
-              <option>Misterio</option>
-              <option>Biografía</option>
-              <option>Otros</option>
+            <Form.Select 
+              defaultValue=""
+              onChange={handleLibro}
+              name="genero"
+            >
+
+              <option disabled value="">Selecciona un genero</option>
+              {generos.map(g => 
+                <option 
+                  value={g.genero_id}
+                  key={g.genero_id}
+                >
+                  {g.nombre}
+                </option>
+              )}
+
             </Form.Select>
           </Form.Group>
 
@@ -100,7 +140,14 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
             />
           </Form.Group>
 
-          <Button variant="dark" className='w-100'>Publicar</Button>
+          <Button 
+            variant="dark" 
+            className='w-100 d-flex justify-content-center align-items-center'
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? <Loader /> : "Publicar"}
+          </Button>
         </Form>
 
       </Card.Body>
