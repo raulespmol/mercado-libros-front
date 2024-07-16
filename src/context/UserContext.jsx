@@ -1,9 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ENDPOINT } from "../utils/constants";
 
 export const UserContext = createContext();
-
-const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const initialStateToken = localStorage.getItem("token") || null;
 
@@ -14,7 +13,7 @@ const UserProvider = ({ children }) => {
   const navigate = useNavigate()
   
   const getDataUsuario = async (token) => {
-    const response = await fetch(`${BASE_URL}/usuarios/get`, {
+    const response = await fetch(`${ENDPOINT.usuarios}/get`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -33,7 +32,7 @@ const UserProvider = ({ children }) => {
   }, [token]);
 
   const loginWithEmailAndPassword = async (email, password) => {
-    const response = await fetch(`${BASE_URL}/login`, {
+    const response = await fetch(ENDPOINT.login, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -46,7 +45,7 @@ const UserProvider = ({ children }) => {
   };
 
   const registerWithEmailAndPassword = async (nombre, email, password) => {
-    const response = await fetch(`${BASE_URL}/usuarios/create`, {
+    const response = await fetch(`${ENDPOINT.usuarios}/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nombre, email, password }),

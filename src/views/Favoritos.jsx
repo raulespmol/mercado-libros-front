@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FavoritosContext } from "../context/FavoritosContext";
+import { LibrosContext } from "../context/LibrosContext";
 import { Container, Row, Col } from "react-bootstrap";
 import CardTienda from "../components/CardTienda/CardTienda";
 
