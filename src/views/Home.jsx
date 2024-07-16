@@ -3,6 +3,7 @@ import Hero from '../components/Hero/Hero'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import CardTienda from '../components/CardTienda/CardTienda'
 import { useNavigate } from "react-router-dom"
+import SectionFeatures from '../components/SectionFeatures/SectionFeatures'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -10,6 +11,7 @@ const Home = () => {
   return (
     <>
       <Hero />
+    <SectionFeatures/>
       <h2 className='text-center my-5 fw-semibold fs-1'>Tienda</h2>
       <Container>
         <Row>
