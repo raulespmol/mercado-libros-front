@@ -1,0 +1,38 @@
+.feature-item {
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.3em;
+  opacity: 1; 
+  transform: translateY(-50px) rotateX(-90deg);
+  font-size: 1.5rem; 
+  margin-bottom: 200px;
+  animation: fadeAndDrop 3s forwards; 
+  background-color: black; 
+  transition: background-color 4s ease; 
+}
+
+@keyframes fadeAndDrop {
+  0%, 20% {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(-90deg);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(3.75em) rotateX(-360deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(4.5em) rotateX(360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(3.75em) rotateX(-360deg); 
+  }
+  to {
+    background-color: white; 
+  }
+}
+
+.feature-item:nth-child(2n) {
+  color: #2bac4b;
+}
