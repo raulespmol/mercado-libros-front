@@ -1,13 +1,16 @@
 import Modal from "react-bootstrap/Modal";
-import React from "react";
+import React, { useContext } from "react";
 import { Badge, Button, Card, CardGroup, Image, Stack } from "react-bootstrap";
 import "./style.css";
 import placeholder from "../../assets/img/placeholder.jpg";
+import { UserContext } from "../../context/UserContext";
 
 const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
   //prop preview se usará:
   //True: desde la vista CrearPublicacion /libros/nuevo | usa el objeto 'nuevoLibro'
   //False: vista DetallePublicacion /libros/libro/:id | usa el objeto 'libro'
+  const { usuario } = useContext(UserContext)
+
   return (
     <CardGroup className="w-100 d-flex flex-row">
       <Card className="d-flex flex-row">
@@ -54,8 +57,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <span>publicado por</span>
           <p className="usuario">
-            {preview ? "Usuario" : libro.usuario}
-            {/* Reemplazar por usuario logeado */}
+            {preview ? usuario?.nombre : libro.usuario}
           </p>
 
           <hr />

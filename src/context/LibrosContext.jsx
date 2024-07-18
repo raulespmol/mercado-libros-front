@@ -42,6 +42,7 @@ export const LibrosProvider = ({ children }) => {
       });
   
       const data = await response.json();
+      await fetchLibros()
       return data
     } catch (error) {
         console.log("Error al postear libro", error)
