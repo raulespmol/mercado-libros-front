@@ -1,11 +1,9 @@
-import Form from "react-bootstrap/Form";
-import Button from 'react-bootstrap/Button';
 import { useContext, useState } from "react";
-import "./style.css";
 import { validateNuevoUsuario } from "../../utils/validateUser";
 import Alert from "../../components/Alert/Alert";
 import { UserContext } from "../../context/UserContext";
-import Loader from "../../components/Loader/Loader";
+import { Form, Button, Spinner } from "react-bootstrap";
+import "./style.css";
 
 const Registro = () => {
   const { registerWithEmailAndPassword } = useContext(UserContext);
@@ -108,7 +106,7 @@ const Registro = () => {
             className="w-100 rounded-5 fw-bold"
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Loader /> : "Crear cuenta"}
+            {isSubmitting ?<Spinner animation="border" variant="light" /> : "Crear cuenta"}
           </Button>
 
           <hr></hr>

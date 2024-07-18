@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Form, Button, Card } from 'react-bootstrap';
+import { Form, Button, Card, Spinner } from 'react-bootstrap';
 import { LibrosContext } from '../../context/LibrosContext';
 import { UserContext } from '../../context/UserContext';
-import Loader from '../Loader/Loader';
 import './style.css';
 
 const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
@@ -146,7 +145,7 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
             type="submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Loader /> : "Publicar"}
+            {isSubmitting ? <Spinner animation="border" variant="light" /> : "Publicar"}
           </Button>
         </Form>
 

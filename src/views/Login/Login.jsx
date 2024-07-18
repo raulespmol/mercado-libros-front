@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Form, Button, Spinner } from "react-bootstrap";
 import "./style.css";
 import { UserContext } from "../../context/UserContext";
 import Alert from "../../components/Alert/Alert";
-import Loader from "../../components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -88,7 +86,7 @@ const LoginPage = () => {
             className="w-100 rounded-5 fw-bold"
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Loader /> : "Iniciar Sesión"}
+            {isSubmitting ? <Spinner animation="border" variant="light" /> : "Iniciar Sesión"}
           </Button>
           <div className="goRegister mt-3">
             <hr></hr>
