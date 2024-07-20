@@ -10,7 +10,17 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
   //True: desde la vista CrearPublicacion /libros/nuevo | usa el objeto 'nuevoLibro'
   //False: vista DetallePublicacion /libros/libro/:id | usa el objeto 'libro'
   const { usuario } = useContext(UserContext)
-  const { agregarAlCarrito, eliminarDelCarrito } = useContext(CarritoContext)
+  const { carrito, agregarAlCarrito, eliminarDelCarrito } = useContext(CarritoContext)
+
+  const estaEnCarrito = carrito.some(item => item.libro_id === libro.libro_id)
+
+  const handleCarrito = (libro) => {
+    if(estaEnCarrito){
+      eliminarDelCarrito(libro.libro_id)
+    } else {
+      agregarAlCarrito(libro)
+    }
+  }
 
   return (
     <CardGroup className="w-100 d-flex flex-row">
@@ -73,14 +83,18 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
                 variant="outline-warning" 
                 disabled={preview}
               >
-                <i class="fa-regular fa-bookmark"></i> Favoritos
+                <i className="fa-regular fa-bookmark"></i> Favoritos
               </Button>
               <Button 
                 variant="success" 
                 disabled={preview}
-                onClick={() => agregarAlCarrito(libro)}
+                onClick={() => handleCarrito(libro)}
               >
-                <i class="fa-solid fa-cart-plus"></i> Carrito
+                {estaEnCarrito
+                ? ( <i className="fa-solid fa-check me-1"></i> )
+                : ( <i className="fa-solid fa-cart-plus me-1"></i> )
+                }
+                Carrito
               </Button>
             </div>
           </div>
