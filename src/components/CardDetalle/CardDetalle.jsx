@@ -1,15 +1,16 @@
-import Modal from "react-bootstrap/Modal";
-import React, { useContext } from "react";
-import { Badge, Button, Card, CardGroup, Image, Stack } from "react-bootstrap";
-import "./style.css";
-import placeholder from "../../assets/img/placeholder.jpg";
+import { useContext } from "react";
+import { Badge, Button, Card, CardGroup, Modal, Image, Stack } from "react-bootstrap";
 import { UserContext } from "../../context/UserContext";
+import { CarritoContext } from "../../context/Carrito";
+import placeholder from "../../assets/img/placeholder.jpg";
+import "./style.css";
 
 const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
   //prop preview se usará:
   //True: desde la vista CrearPublicacion /libros/nuevo | usa el objeto 'nuevoLibro'
   //False: vista DetallePublicacion /libros/libro/:id | usa el objeto 'libro'
   const { usuario } = useContext(UserContext)
+  const { agregarAlCarrito, eliminarDelCarrito } = useContext(CarritoContext)
 
   return (
     <CardGroup className="w-100 d-flex flex-row">
@@ -64,15 +65,22 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <div className="d-flex justify-content-between align-items-center">
             <span className="precio">
-              {preview ? `$ ${nuevoLibro.precio}` : libro.precio}
+              {preview ? ( "$" + nuevoLibro.precio)  : ( "$" + libro.precio )}
             </span>
 
             <div className="d-flex gap-2">
-              <Button variant="warning" disabled={preview}>
-                + Favoritos
+              <Button 
+                variant="outline-warning" 
+                disabled={preview}
+              >
+                <i class="fa-regular fa-bookmark"></i> Favoritos
               </Button>
-              <Button variant="success" disabled={preview}>
-                + Carrito
+              <Button 
+                variant="success" 
+                disabled={preview}
+                onClick={() => agregarAlCarrito(libro)}
+              >
+                <i class="fa-solid fa-cart-plus"></i> Carrito
               </Button>
             </div>
           </div>

@@ -1,18 +1,22 @@
+import { useContext, useState } from "react";
 import { Badge, Button, ListGroup } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
+import ModalDetalle from "../Modal/ModalDetallePublicacion";
+import { CarritoContext } from "../../context/Carrito";
 
 
 const ItemCarrito = ({libro}) => {
-  const navigate = useNavigate()
+  const{ eliminarDelCarrito } = useContext(CarritoContext)
+  const [modalShow, setModalShow] = useState(false);
 
   const imgStyle = {
-    height: "128px"
+    height: "128px",
+    objectFit: "cover"
   }
 
   return (
     <ListGroup.Item className="d-flex justify-content-between">
       <div className="d-flex align-items-center gap-3">
-        <img src={libro.img} alt={libro.titulo} style={imgStyle} />
+        <img src={libro.url_imagen} alt={libro.titulo} style={imgStyle} />
 
         <div className="d-flex flex-column">
           <h3 className="m-0">{libro.titulo}</h3>
@@ -21,21 +25,28 @@ const ItemCarrito = ({libro}) => {
           <div className="d-flex gap-1">
             <Badge bg="secondary">{libro.genero}</Badge>
             <Badge bg="secondary">{libro.editorial}</Badge>
+            <Badge bg="secondary">{libro.anio}</Badge>
           </div>
         </div>
       </div>
 
       <div className="d-flex flex-column align-items-end justify-content-center">
-        <p className="m-0 fw-bold fs-2">{libro.precio}</p>
+        <p className="m-0 fw-bold fs-2">{( "$" + libro.precio )}</p>
         <div className="d-flex gap-2">
           <Button 
             variant="outline-dark"
-            onClick={() => navigate(`/libros/${libro.id_libro}`)}
+            onClick={() => setModalShow(true)}
           >
             Ver publicacion 
           </Button>
+          <ModalDetalle
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            libro={libro}
+          />
           <Button 
-            variant="dark"
+            variant="outline-danger"
+            onClick={() => eliminarDelCarrito(libro.libro_id)}
           >
             <i className="fa-solid fa-trash-can"></i>
           </Button>
