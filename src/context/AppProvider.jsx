@@ -1,16 +1,13 @@
 import { LibrosProvider } from "./LibrosContext"
-import { SearchProvider } from "./SearchContext"
 import UserProvider from "./UserContext"
 
 const AppProvider = ({children}) => {
   return (
     <UserProvider>
       <LibrosProvider>
-        <SearchProvider>
 
-          {children}
+        {children}
 
-        </SearchProvider>
       </LibrosProvider>
     </UserProvider>
   )
