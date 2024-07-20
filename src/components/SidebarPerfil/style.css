@@ -1,5 +1,5 @@
 .sidebar {
-  width: 360px;
+  width: 260px;
   min-height: calc(100vh - 56px);
 }
 
@@ -30,4 +30,5 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
+  object-fit: cover;
 }

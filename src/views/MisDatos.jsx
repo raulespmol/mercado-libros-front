@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
+import { Button, Card, Col, Container, Form, Image, Row } from "react-bootstrap"
 import avatarPlaceholder from "../assets/img/avatar-placeholder.jpg"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/UserContext"
@@ -7,9 +7,10 @@ const MisDatos = () => {
   const {usuario} = useContext(UserContext)
 
   const imgStyle = {
-    height: "200px",
     width: "200px",
-    borderRadius: "50%"
+    height: "200px",
+    borderRadius: "50%",
+    objectFit: "cover"
   }
 
   const [datosUsuario, setDatosUsuario] = useState({
@@ -38,13 +39,13 @@ const MisDatos = () => {
   return (
     <Container>
       <Row className='pt-3 mb-3 justify-content-center'>
-        <Col sm={10}>
+        <Col sm={12} md={7}>
           <h2 className="mb-4">Bienvenido {usuario ? usuario.nombre : "Usuario"}</h2>
           <Card>
             <Card.Body className="d-flex flex-column p-3">
               <div className="d-flex gap-3 mb-3">
-                <img src={usuario ? usuario.imagen : avatarPlaceholder} style={imgStyle}/>
-                <div className="d-flex flex-column w-100">
+                <img src={usuario ? usuario.imagen : avatarPlaceholder} alt="" style={imgStyle} />
+                <div className="d-flex flex-column flex-fill">
                   <h5 className="fw-semibold">Datos Personales</h5>
 
                   <Form.Group controlId="nombreUsuario" className="flex-grow-1">
