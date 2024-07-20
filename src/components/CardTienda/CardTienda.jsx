@@ -1,55 +1,41 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import "./style.css";
 // import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Button, Card, Badge } from "react-bootstrap";
 import placeholder from "../../assets/img/placeholder.jpg";
-import { Badge } from "react-bootstrap";
 import ModalDetalle from "../Modal/ModalDetallePublicacion";
+import "./style.css";
 
-//valores por defecto para renderizar mientras se obtienen datos desde el back
-//el id de la publicacion se usara para navegar al detalle '/libros/:id'
-
-const CardTienda = ({ id, titulo, autor, genero, precio, usuario, img }) => {
-  // const navigate = useNavigate();
+const CardTienda = ({ libro }) => {
   const [modalShow, setModalShow] = useState(false);
 
-  const libro = {
-    id,
-    titulo,
-    autor,
-    genero,
-    precio,
-    usuario,
-    url_imagen: img ? img : placeholder,
-  };
-
   return (
-    <Card>
-      {/* si la dirección de la imagen falla se mostrará placeolder */}
+    <Card className="h-100">
       <Card.Img
         variant="top"
-        // src={img ? img : placeholder}
         src={libro.url_imagen}
         className="imgStyle"
       />
-      <Card.Body className="info">
+      <Card.Body className="info py-1">
         <div>
-          <h5 className="titulo">{titulo}</h5>
-          <p className="autor m-0">{autor}</p>
-          <Badge bg="success">{genero}</Badge>
+          <h5 className="titulo">{libro.titulo}</h5>
+          <p className="autor m-0">{libro.autor}</p>
         </div>
-        <p className="precio">{precio}</p>
+        <div className="d-flex justify-content-between">
+          <div className="d-flex gap-1 align-items-center">
+            <Badge bg="secondary">{libro.genero}</Badge>
+            <Badge bg="secondary">{libro.anio}</Badge>
+          </div>
+          <p className="precio">${libro.precio}</p>
+        </div>
       </Card.Body>
       <Card.Footer>
         <div>
           <span>publicado por</span>
-          <p className="usuario">{usuario}</p>
+          <p className="usuario">{libro.usuario}</p>
         </div>
         <Button
-          variant="dark"
+          variant="success"
           size="sm"
-          // onClick={() => navigate(`/libros/libro/${id}`)}
           onClick={() => setModalShow(true)}
         >
           Ver Detalles

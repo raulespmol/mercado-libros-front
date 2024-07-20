@@ -1,4 +1,10 @@
-.info, .card-footer {
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +37,7 @@
 
 .imgStyle{
   object-fit: cover;
-  height: 200px;
+  height: 350px;
 }
 
 .rounded-left {
