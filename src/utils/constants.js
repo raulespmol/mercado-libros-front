@@ -4,4 +4,5 @@ export const ENDPOINT = {
   login: `${URLBASE}/login`,
   usuarios: `${URLBASE}/usuarios`,
   libros: `${URLBASE}/libros`,
+  favoritos: `${URLBASE}/favoritos`,
 }
