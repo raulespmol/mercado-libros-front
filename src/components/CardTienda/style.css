@@ -38,6 +38,7 @@
 .imgStyle{
   object-fit: cover;
   height: 350px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .rounded-left {
@@ -45,4 +46,13 @@
   border-bottom-left-radius: 0.25rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.card:hover .imgStyle {
+  transition: transform 0.3s ease-in-out; 
+}
+
+.card:hover {
+  transform: scale(1.05); 
+  transition: transform 0.3s ease-in-out; 
 }
