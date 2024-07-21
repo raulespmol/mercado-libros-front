@@ -12,7 +12,7 @@ const Hero = () => {
         <h5>¡Dale una segunda vida a esos tesoros literarios!</h5>
         <h1>MercadoLibros</h1>
         <Button 
-          className="text-success fw-normal rounded-1 px-4 py-2"
+          className="button text-success fw-normal rounded-1 px-4 py-2"
           variant="light" 
           size="md"
           onClick={() => navigate('/libros')}

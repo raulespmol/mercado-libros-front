@@ -9,7 +9,7 @@ const CardTienda = ({ libro }) => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <Card className="h-100">
+    <Card className="hover h-100">
       <Card.Img
         variant="top"
         src={libro.url_imagen}
