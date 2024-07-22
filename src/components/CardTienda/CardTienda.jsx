@@ -1,7 +1,6 @@
 // import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Button, Card, Badge } from "react-bootstrap";
-import placeholder from "../../assets/img/placeholder.jpg";
 import ModalDetalle from "../Modal/ModalDetallePublicacion";
 import "./style.css";
 

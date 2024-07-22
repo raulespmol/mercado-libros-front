@@ -13,23 +13,35 @@ const UserProvider = ({ children }) => {
   const navigate = useNavigate()
   
   const getDataUsuario = async (token) => {
-    const response = await fetch(`${ENDPOINT.usuarios}/get`, {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    
+    // leer los datos del usuario desde el localStorage primero
+    const cachedData = localStorage.getItem("usuarioData");
+    if (cachedData) {
+      setUsuario(JSON.parse(cachedData));
+      // Si no están los datos en localstorage, hacer la petición al servidor
+    } else {
+      const response = await fetch(`${ENDPOINT.usuarios}/get`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-    const [data] = await response.json()
-    setUsuario(data)
-  }
+      const [data] = await response.json();
+      setUsuario(data);
+      // Guardar los datos del usuario en el localStorage
+      localStorage.setItem("usuarioData", JSON.stringify(data));
+    }
+  };
 
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
-      getDataUsuario(token)
-    } else {
+      getDataUsuario(token);
+    } else {//limpiar caché en logout
       localStorage.removeItem("token");
+      localStorage.removeItem("usuarioData"); 
     }
   }, [token]);
+  
 
   const loginWithEmailAndPassword = async (email, password) => {
     const response = await fetch(ENDPOINT.login, {
