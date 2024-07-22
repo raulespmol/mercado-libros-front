@@ -47,12 +47,3 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-
-.card:hover .imgStyle {
-  transition: transform 0.3s ease-in-out; 
-}
-
-.card:hover {
-  transform: scale(1.05); 
-  transition: transform 0.3s ease-in-out; 
-}
