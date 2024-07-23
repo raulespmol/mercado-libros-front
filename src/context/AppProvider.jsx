@@ -1,4 +1,5 @@
 import { CarritoProvider } from "./Carrito"
+import { FavoritosProvider } from "./FavoritosContext"
 import { LibrosProvider } from "./LibrosContext"
 import UserProvider from "./UserContext"
 
@@ -7,9 +8,11 @@ const AppProvider = ({children}) => {
     <UserProvider>
       <CarritoProvider>
         <LibrosProvider>  
-          
-          {children}
+          <FavoritosProvider>
 
+            {children}
+
+          </FavoritosProvider>
         </LibrosProvider>
       </CarritoProvider>
     </UserProvider>

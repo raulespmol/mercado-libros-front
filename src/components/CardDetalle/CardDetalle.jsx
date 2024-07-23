@@ -1,18 +1,23 @@
-import { useContext } from "react";
-import { Badge, Button, Card, CardGroup, Modal, Image, Stack } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Badge, Button, Card, CardGroup, Modal, Image, Stack, Spinner } from "react-bootstrap";
 import { UserContext } from "../../context/UserContext";
 import { CarritoContext } from "../../context/Carrito";
+import { FavoritosContext } from "../../context/FavoritosContext";
 import placeholder from "../../assets/img/placeholder.jpg";
 import "./style.css";
 
 const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
   //prop preview se usará:
   //True: desde la vista CrearPublicacion /libros/nuevo | usa el objeto 'nuevoLibro'
-  //False: vista DetallePublicacion /libros/libro/:id | usa el objeto 'libro'
+  //False: vista desde Modal | usa el objeto 'libro'
   const { usuario } = useContext(UserContext)
   const { carrito, agregarAlCarrito, eliminarDelCarrito } = useContext(CarritoContext)
+  const { favoritos, toggleFavorito } = useContext(FavoritosContext)
 
-  const estaEnCarrito = carrito.some(item => item.libro_id === libro.libro_id)
+  const estaEnCarrito = !preview && carrito.some(item => item.libro_id === libro.libro_id)
+  const estaEnFavoritos = !preview && favoritos.some(item => item.libro_id === libro.libro_id)
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleCarrito = (libro) => {
     if(estaEnCarrito){
@@ -21,6 +26,21 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
       agregarAlCarrito(libro)
     }
   }
+
+  const handleFavorito = async (usuario, libro) => {
+    setIsSubmitting(true)
+    try {
+      await toggleFavorito(usuario, libro, estaEnFavoritos ? "remove" : "add")
+    } finally {
+      setTimeout(() => {
+        setIsSubmitting(false)
+      }, 400);
+    }
+  }
+
+  useEffect(() => {
+    console.log(isSubmitting)
+  }, [isSubmitting])
 
   return (
     <CardGroup className="w-100 d-flex flex-row">
@@ -80,11 +100,19 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
             <div className="d-flex gap-2">
               <Button 
-                variant="outline-warning" 
-                disabled={preview}
+                className="text-light"
+                variant="warning" 
+                disabled={preview || isSubmitting}
+                onClick={() => handleFavorito(usuario.usuario_id, libro.libro_id)}
               >
-                <i className="fa-regular fa-bookmark"></i> Favoritos
+                {isSubmitting
+                ? <Spinner animation="border" size="sm" />
+                : estaEnFavoritos
+                ? ( <i className="fa-solid fa-bookmark"></i> )
+                : ( <i className="fa-regular fa-bookmark"></i> )
+                }
               </Button>
+
               <Button 
                 variant="success" 
                 disabled={preview}
