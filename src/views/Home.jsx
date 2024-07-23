@@ -26,11 +26,11 @@ const Home = () => {
             ))
           }
         </Row>
-        <Row className='mb-4'>
-          <Col>
-            <Button 
-              className="w-100"
-              variant="dark"
+        <Row className='my-4'>
+          <Col className="d-flex justify-content-center">
+             <Button 
+              className="btn-md shadow-sm"
+              variant="success"
               onClick={() => navigate('/libros')}
             >
               Ver más
