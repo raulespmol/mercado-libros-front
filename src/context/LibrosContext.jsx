@@ -1,11 +1,31 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useContext, useState } from "react";
+import { UserContext } from "./UserContext";
 import { ENDPOINT } from "../utils/constants";
 
 export const LibrosContext = createContext();
 
 export const LibrosProvider = ({ children }) => {
+
+  const { token } = useContext(UserContext);
   const [libros, setLibros] = useState([]);
-  const [generos, setGeneros] = useState([])
+  const [generos, setGeneros] = useState([]);
+
+  const fetchLibrosUsuario = async () => {
+    try {
+      const response = await fetch(`${ENDPOINT.libros}/mis-libros`, {
+        headers: {
+          'Authorization': `Bearer ${token}` //token de usuario
+      }
+      });
+      if (!response) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const res = await response.json();
+      setLibros(res.data);
+    } catch (error) {
+      console.error("Error al obtener libros del usuario:", error);
+    }
+  }
 
   const fetchLibros = async () => {
     try {
@@ -52,6 +72,7 @@ export const LibrosProvider = ({ children }) => {
   useEffect(() => {
     fetchLibros()
     fetchGeneros()
+    fetchLibrosUsuario()
   }, []);
 
   return (
