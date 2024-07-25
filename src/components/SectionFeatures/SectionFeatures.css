@@ -1,37 +1,18 @@
-.feature-item {
-  position: relative;
-  display: inline-block;
-  letter-spacing: 0.3em;
-  opacity: 1; 
-  transform: translateY(-50px) rotateX(-90deg);
-  font-size: 1.5rem; 
-  margin-bottom: 200px;
-  animation: fadeAndDrop 1500ms forwards;
-  transition: background-color 4s ease; 
+.carousel-container {
+  width: 100%;         
+  max-width: 1200px;   
+  margin: 0 auto;      
+  padding: 0;          
+  margin: 50px auto 0;
+  mask-image: linear-gradient(white 80%, transparent);
 }
 
-@keyframes fadeAndDrop {
-  0%, 20% {
-    opacity: 0;
-    transform: translateY(-50px) rotateX(-90deg);
-  }
-  20% {
-    opacity: 0.8;
-    transform: translateY(3.75em) rotateX(-360deg);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(4.5em) rotateX(360deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(3.75em) rotateX(-360deg); 
-  }
-  to {
-    background-color: white; 
-  }
+.carousel .carousel-item {
+  height: 500px;       
 }
 
-.feature-item:nth-child(2n) {
-  color: #2bac4b;
+.carousel-image {
+  width: 100%;         
+  height: 100%;        
+  object-fit: cover;   
 }

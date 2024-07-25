@@ -1,40 +1,35 @@
-import { Container } from "react-bootstrap";
-import './SectionFeatures.css';
-import React, { useEffect } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import './SectionFeatures.css'; 
 
-const animateText = (text) => {
-  return text.split('').map((char, index) => (
-    <span key={index} className={`feature-item ld${(index % 9) + 1}`}>
-      {char === ' ' ? '\u00A0' : char}
-    </span>
-  ));
-};
-
-const SectionFeatures = () => {
-  useEffect(() => {
-    const style = document.createElement('style');
-    let dropDelays = '\n';
-
-    for (let i = 1; i <= 9; i++) {
-      dropDelays += `.ld${i} { animation-delay: 1.${i}s; }\n`;
-    }
-
-    style.innerHTML = dropDelays;
-    document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
+function SectionFeatures() {
   return (
-    <section className="features my-5">
-      <Container className="text-center">
-        <h3>{animateText('¡Tu próximo capítulo está a solo un clic de distancia!')}</h3>
-
-      </Container>
-    </section>
+    <div className="carousel-container">
+      <Carousel>
+        <Carousel.Item interval={1500}>
+          <img
+            className="d-block w-100 carousel-image"
+            src="https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Books and Reading"
+          />
+          <Carousel.Caption>
+            <h3>Label for first slide</h3>
+            <p>Sample Text for Image One</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={1000}>
+          <img
+            className="d-block w-100 carousel-image"
+            src="https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Books"
+          />
+          <Carousel.Caption>
+            <h3>Label for second slide</h3>
+            <p>Sample Text for Image Two</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </div>
   );
-};
+}
 
 export default SectionFeatures;
