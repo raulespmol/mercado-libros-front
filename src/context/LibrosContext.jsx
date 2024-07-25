@@ -7,8 +7,9 @@ export const LibrosContext = createContext();
 export const LibrosProvider = ({ children }) => {
 
   const { token } = useContext(UserContext);
-  const [libros, setLibros] = useState([]);
-  const [generos, setGeneros] = useState([]);
+  const [ libros, setLibros ] = useState([]);
+  const [ generos, setGeneros ] = useState([]);
+  const [ librosUser, setlibrosUser ] = useState([]);
 
   const fetchLibrosUsuario = async () => {
     try {
@@ -21,7 +22,7 @@ export const LibrosProvider = ({ children }) => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const res = await response.json();
-      setLibros(res.data);
+      setlibrosUser(res.data);
     } catch (error) {
       console.error("Error al obtener libros del usuario:", error);
     }
@@ -76,7 +77,7 @@ export const LibrosProvider = ({ children }) => {
   }, []);
 
   return (
-    <LibrosContext.Provider value={{ libros, generos, postLibro }}>
+    <LibrosContext.Provider value={{ libros, generos, postLibro, librosUser }}>
       {children}
     </LibrosContext.Provider>
   );
