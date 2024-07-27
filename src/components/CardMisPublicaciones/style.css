@@ -1,0 +1,9 @@
+.imagen{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.desc{
+    font-size: 13px;
+}
