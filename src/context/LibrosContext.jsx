@@ -94,6 +94,27 @@ export const LibrosProvider = ({ children }) => {
     }
   }
 
+  const deleteLibro = async (libroId) => {
+    try {
+      const response = await fetch(`${ENDPOINT.libros}/delete/${libroId}`, {
+        method: "DELETE",
+        headers: {
+          'Authorization': `Bearer ${token}`, 
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      await fetchLibrosUsuario(); 
+      return data;
+    } catch (error) {
+      console.error("Error al eliminar libro:", error);
+    }
+  };
+
   useEffect(() => {
     fetchLibros();
     fetchGeneros();
@@ -101,7 +122,7 @@ export const LibrosProvider = ({ children }) => {
   }, []);
 
   return (
-    <LibrosContext.Provider value={{ libros, generos, postLibro, librosUser, updateLibro }}>
+    <LibrosContext.Provider value={{ libros, generos, postLibro, librosUser, updateLibro, deleteLibro }}>
       {children}
     </LibrosContext.Provider>
   );
