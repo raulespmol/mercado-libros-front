@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
+import ModalActualizarPublicacion from "../Modal/ModalActualizarPublicación";
 import "./style.css";
 
 const CardMisPublicaciones = ({ libro }) => {
+
+  //estado para mostrar el modal
+  const [modalShow, setModalShow] = useState(false);
+
   const formatearFecha = (fecha) => {
     const date = new Date(fecha);
     const dia = date.getDate();
@@ -23,8 +28,8 @@ const CardMisPublicaciones = ({ libro }) => {
           />
           <div className="flex-grow-1 p-2">
             <Card.Subtitle className="mb-2 text-muted pt-2">
-              <i class="fa-regular fa-calendar"></i>
-              <span className="ms-2 text-secondary">
+              <span className="text-secondary">Publicado el:
+                <i className="fa-regular fa-calendar me-1 ms-2"></i>
                 {formatearFecha(libro.fecha_publicacion)}
               </span>
             </Card.Subtitle>
@@ -33,18 +38,28 @@ const CardMisPublicaciones = ({ libro }) => {
             <Card.Text className="text-dark">${libro.precio}</Card.Text>
           </div>
         </Card.Body>
-        <Card.Footer className="d-flex justify-content-between p-1">             
+        <Card.Footer className="d-flex justify-content-between p-1">         
+
           <ButtonGroup className="w-100">
-            <Button variant="light">
-              <i class="fa-solid fa-pencil text-success"></i>
+            <Button variant="light" onClick={() => setModalShow(true)}>
+              <i className="fa-solid fa-pencil text-success"></i>
               <span className="ms-2">editar</span>
             </Button>
+
             <Button variant="light">
-              <i class="fa-solid fa-trash text-danger-emphasis"></i>
+              <i className="fa-solid fa-trash text-danger-emphasis"></i>
               <span className="ms-2">eliminar</span>
             </Button>
           </ButtonGroup>
+
+          <ModalActualizarPublicacion
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            libro={libro}
+          />
+
         </Card.Footer>
+        
       </Card>
     </>
   );

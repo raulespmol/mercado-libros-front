@@ -4,11 +4,11 @@ import CardDetalle from '../CardDetalle/CardDetalle';
 function ModalDetalle({show, libro, onHide}) {
     return (
         <Modal
-        show={show}
-        onHide={onHide}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+          show={show}
+          onHide={onHide}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
         <CardDetalle libro={libro}/>
       </Modal>
