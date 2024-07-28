@@ -1,12 +1,23 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import ModalActualizarPublicacion from "../Modal/ModalActualizarPublicación";
+import ModalEliminarPublicacion from '../Modal/ModalEliminarPublicacion';
+import { LibrosContext } from '../../context/LibrosContext'
 import "./style.css";
 
 const CardMisPublicaciones = ({ libro }) => {
-
+  const { deleteLibro } = useContext(LibrosContext);
+  const handleEliminar = async (libroId) => {
+    const confirmacion = window.confirm("¿Estás seguro de que quieres eliminar este libro?");
+    if (confirmacion) {
+      await deleteLibro(libroId);
+    }
+  };
   //estado para mostrar el modal
   const [modalShow, setModalShow] = useState(false);
+  const [modalEliminarShow, setModalEliminarShow] = useState(false);
+
+  console.log('Libro en CardMisPublicaciones:', libro); 
 
   const formatearFecha = (fecha) => {
     const date = new Date(fecha);
@@ -15,6 +26,8 @@ const CardMisPublicaciones = ({ libro }) => {
     const año = date.getFullYear();
     return `${dia}/${mes}/${año}`;
   };
+
+
 
   return (
     <>
@@ -46,7 +59,7 @@ const CardMisPublicaciones = ({ libro }) => {
               <span className="ms-2">editar</span>
             </Button>
 
-            <Button variant="light">
+            <Button variant="light" onClick={() => setModalEliminarShow(true)}>
               <i className="fa-solid fa-trash text-danger-emphasis"></i>
               <span className="ms-2">eliminar</span>
             </Button>
@@ -57,7 +70,12 @@ const CardMisPublicaciones = ({ libro }) => {
             onHide={() => setModalShow(false)}
             libro={libro}
           />
-
+            <ModalEliminarPublicacion
+  show={modalEliminarShow}
+  onHide={() => setModalEliminarShow(false)}
+  libro={libro}
+  onEliminar={handleEliminar} 
+/>
         </Card.Footer>
         
       </Card>
