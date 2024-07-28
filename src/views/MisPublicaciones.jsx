@@ -1,11 +1,10 @@
 import React, {useContext} from 'react'
 import { LibrosContext } from '../context/LibrosContext'
-import CardTienda from "../components/CardTienda/CardTienda";
-import '../components/CardPublicacion/style.css'
+import CardMisPublicaciones from "../components/CardMisPublicaciones/CardMisPublicaciones";
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
 
 const MisPublicaciones = () => {
-
+  
   const { librosUser } = useContext(LibrosContext)
 
   return (
@@ -15,8 +14,8 @@ const MisPublicaciones = () => {
         <Row className="mt-5">
           {librosUser.length > 0
           ? librosUser.map((libro) => (
-              <Col key={libro.libro_id} sm={6} md={4} lg={3} className="mb-4">
-                <CardTienda libro={libro} />
+              <Col key={libro.libro_id} sm={6} md={4} lg={4} className="mb-4">
+                <CardMisPublicaciones libro={libro}/>
               </Col>
             ))
           : <Spinner />

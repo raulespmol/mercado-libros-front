@@ -70,14 +70,38 @@ export const LibrosProvider = ({ children }) => {
     }
   }
 
+  const updateLibro = async (libroActualizado) => {
+    // console.log("ID", libroActualizado.id)
+    try {
+      const response = await fetch(`${ENDPOINT.libros}/update/${libroActualizado.id}`, {
+        method: "PUT",
+        headers: { 
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(libroActualizado),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      await fetchLibrosUsuario()
+      return data
+    } catch (error) {
+        console.log("Error al actualizar libro", error)
+    }
+  }
+
   useEffect(() => {
-    fetchLibros()
-    fetchGeneros()
-    fetchLibrosUsuario()
+    fetchLibros();
+    fetchGeneros();
+    fetchLibrosUsuario();
   }, []);
 
   return (
-    <LibrosContext.Provider value={{ libros, generos, postLibro, librosUser }}>
+    <LibrosContext.Provider value={{ libros, generos, postLibro, librosUser, updateLibro }}>
       {children}
     </LibrosContext.Provider>
   );
