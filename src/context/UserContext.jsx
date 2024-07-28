@@ -71,12 +71,42 @@ const UserProvider = ({ children }) => {
     setUsuario(null)
     navigate('/')
   };
+
+  const updateUserData = async (user, userData) => {
+    try {
+      const response = await fetch(`${ENDPOINT.usuarios}/update/${user}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          usuario_id: user,
+          ...userData
+        }),
+      });
+      const data = await response.json();
+
+      if(data.msg){
+        const response = await fetch(`${ENDPOINT.usuarios}/get`, {
+          method: "GET",
+          headers: { Authorization: `Bearer ${token}` },
+        });
+  
+        const [data] = await response.json();
+        setUsuario(data);
+        // Guardar los datos del usuario en el localStorage
+        localStorage.setItem("usuarioData", JSON.stringify(data));
+      }
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
   return (
     <UserContext.Provider
       value={{
         loginWithEmailAndPassword,
         registerWithEmailAndPassword,
+        updateUserData,
         usuario,
         token,
         logout,

@@ -1,10 +1,11 @@
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import avatarPlaceholder from "../assets/img/avatar-placeholder.jpg";
+import { Button, Card, Col, Container, Form, Row, Spinner } from "react-bootstrap";
+import Alert from "../components/Alert/Alert";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import avatarPlaceholder from "../assets/img/avatar-placeholder.jpg";
 
 const MisDatos = () => {
-  const { usuario } = useContext(UserContext);
+  const { usuario, updateUserData } = useContext(UserContext);
 
   const imgStyle = {
     width: "170px",
@@ -16,10 +17,15 @@ const MisDatos = () => {
   const [datosUsuario, setDatosUsuario] = useState({
     nombre: "",
     apellidos: "",
-    email: "",
     telefono: "",
     imagen: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false) //estado para Spinner
+  const [alert, setAlert] = useState({ //estado para mensajes
+    msg: "",
+    color: ""
+  })
 
   useEffect(() => {
     if (usuario) {
@@ -34,6 +40,28 @@ const MisDatos = () => {
       [name]: value,
     });
   };
+
+  const handleSubmit = async (user, userData) => {
+    setIsSubmitting(true)
+    try {
+      const response = await updateUserData(user, userData)
+      console.log(response.msg)
+      if(response.msg) {
+        setAlert({
+          msg: response.msg,
+          color: 'success'
+        });
+  
+        setTimeout(() => {
+          setAlert({msg: '', color: ''});
+        }, 4000);
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
+
+    
+  }
 
   return (
     <Container>
@@ -92,7 +120,7 @@ const MisDatos = () => {
                         placeholder="url de la imagen"
                         className="mb-0 fw-light"
                         value={datosUsuario.imagen ? datosUsuario.imagen : ""}
-                        onChange={handleDatos}                       
+                        onChange={handleDatos}
                       />
                     </Form.Group>
                   </div>
@@ -122,16 +150,31 @@ const MisDatos = () => {
                       placeholder="usuario@correo.cl"
                       className="mb-0 fw-light"
                       value={datosUsuario.email ? datosUsuario.email : ""}
-                      onChange={handleDatos}
+                      disabled
                     />
                   </Form.Group>
                 </div>
               </div>
             </Card.Body>
 
-            <Card.Footer className="justify-content-end gap-2">
-              <Button variant="outline-dark">Cambiar Contraseña</Button>
-              <Button variant="dark">Actualizar Datos</Button>
+            <Card.Footer className="justify-content-center flex-column">
+              <div className="w-100 d-flex justify-content-end gap-2">
+                <Button variant="outline-dark">Cambiar Contraseña</Button>
+                <Button 
+                  variant="dark"
+                  style={{minWidth: "180px"}}
+                  disabled={isSubmitting}
+                  onClick={() => handleSubmit(usuario.usuario_id, datosUsuario)}
+                >
+                  {isSubmitting
+                  ? <Spinner animation="border" size="sm" />
+                  : "Actualizar Datos" 
+                  }
+                </Button>
+              </div>
+              <div>
+                {alert.msg && <Alert msg={alert.msg} color={alert.color}/>}
+              </div>
             </Card.Footer>
           </Card>
         </Col>

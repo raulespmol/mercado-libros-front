@@ -38,10 +38,6 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
     }
   }
 
-  useEffect(() => {
-    console.log(isSubmitting)
-  }, [isSubmitting])
-
   return (
     <CardGroup className="w-100 d-flex flex-row">
       <Card className="d-flex flex-row">
