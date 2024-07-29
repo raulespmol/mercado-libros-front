@@ -7,7 +7,9 @@ function ModalActualizarPublicacion({ show, libro, onHide }) {
       <Modal.Header closeButton>
         <Modal.Title>Actualizar Publicación</Modal.Title>
       </Modal.Header>
-      <FormActualizarPublicacion libro={libro} onHide={onHide} />
+      <Modal.Body>
+        <FormActualizarPublicacion libro={libro} onHide={onHide} />
+      </Modal.Body>
     </Modal>
   );
 }
