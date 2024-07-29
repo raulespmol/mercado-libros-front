@@ -1,10 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { LibrosContext } from "../context/LibrosContext";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Form, Button, Row, Col, Modal } from "react-bootstrap";
 
 const FormActualizarPublicacion = ({ libro, onHide }) => {
-    
   const { updateLibro, generos } = useContext(LibrosContext);
 
   const [libroActualizado, setLibroActualizado] = useState({
@@ -37,69 +35,96 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formTitulo">
-          <Form.Label>Título</Form.Label>
-          <Form.Control
-            size="lg"
-            type="text"
-            placeholder={libroActualizado.titulo}
-            onChange={(e) =>
-              setLibroActualizado({ ...libroActualizado, titulo: e.target.value })
-            }
-          />
-        </Form.Group>
-        <Form.Group controlId="formDescripcion">
-          <Form.Label>Descripción</Form.Label>
-          <Form.Control
-            size="lg"
-            type="text"
-            placeholder={libroActualizado.descripcion}
-            onChange={(e) =>
-              setLibroActualizado({ ...libroActualizado, descripcion: e.target.value })
-            }
-          />
-        </Form.Group>
-        <Form.Group controlId="formGenero">
-          <Form.Label>Género</Form.Label>
-          <Form.Select
-            size="lg"
-            value={libroActualizado.genero}
-            onChange={(e) =>
-              setLibroActualizado({ ...libroActualizado, genero: e.target.value })
-            }
-          >
-            {generos.map((genero) => (
-              <option key={genero.id} value={genero.id}>
-                {genero.nombre}
-              </option>
-            ))}
-          </Form.Select>
-        </Form.Group>
-        <Form.Group controlId="formPrecio">
-          <Form.Label>Precio</Form.Label>
-          <Form.Control
-            size="lg"
-            type="text"
-            placeholder={libroActualizado.precio}
-            onChange={(e) =>
-              setLibroActualizado({ ...libroActualizado, precio: e.target.value })
-            }
-          />
-        </Form.Group>
-        <Form.Group controlId="formUrlImagen">
-          <Form.Label>URL de la Imagen</Form.Label>
-          <Form.Control
-            size="lg"
-            type="text"
-            placeholder={libroActualizado.url_imagen}
-            onChange={(e) =>
-              setLibroActualizado({ ...libroActualizado, url_imagen: e.target.value })
-            }
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Actualizar
-        </Button>
+        <Row className="mb-3">
+          <Form.Group controlId="formTitulo">
+            <Form.Label>Título</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder={libroActualizado.titulo}
+              onChange={(e) =>
+                setLibroActualizado({
+                  ...libroActualizado,
+                  titulo: e.target.value,
+                })
+              }
+            />
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group controlId="formDescripcion">
+            <Form.Label>Descripción</Form.Label>
+            <Form.Control
+              as="textarea" rows={3}
+              type="text"
+              placeholder={libroActualizado.descripcion}
+              onChange={(e) =>
+                setLibroActualizado({
+                  ...libroActualizado,
+                  descripcion: e.target.value,
+                })
+              }
+            />
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group controlId="formGenero">
+            <Form.Label>Género</Form.Label>
+            <Form.Select
+              value={libroActualizado.genero}
+              onChange={(e) =>
+                setLibroActualizado({
+                  ...libroActualizado,
+                  genero: e.target.value,
+                })
+              }
+            >
+              {generos.map((genero) => (
+                <option key={genero.id} value={genero.id}>
+                  {genero.nombre}
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group controlId="formPrecio">
+            <Form.Label>Precio</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder={libroActualizado.precio}
+              onChange={(e) =>
+                setLibroActualizado({
+                  ...libroActualizado,
+                  precio: e.target.value,
+                })
+              }
+            />
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group controlId="formUrlImagen">
+            <Form.Label>Portada (url de la imagen)</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder={libroActualizado.url_imagen}
+              onChange={(e) =>
+                setLibroActualizado({
+                  ...libroActualizado,
+                  url_imagen: e.target.value,
+                })
+              }
+            />
+          </Form.Group>
+        </Row>
+        <Modal.Footer>
+          <Row className="mb-3">
+            <Col className="text-end">
+              <Button variant="primary" type="submit">
+                Actualizar
+              </Button>
+            </Col>
+          </Row>
+        </Modal.Footer>
       </Form>
     </>
   );

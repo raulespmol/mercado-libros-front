@@ -16,7 +16,7 @@ const SidebarPerfil = () => {
   const handleCloseModal = () => setShowModal(false);
 
   return (
-    <Card className="text-center sidebar">
+    <Card className="text-center sidebar pt-3 px-2 bg-light rounded-0">
       <Card.Body className="d-flex flex-column justify-content-between">
         <div className="top d-flex flex-column gap-3">
           <div className="d-flex align-items-center gap-3">
