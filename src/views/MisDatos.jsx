@@ -64,12 +64,12 @@ const MisDatos = () => {
   }
 
   return (
-    <Container>
+    <Container fluid className="p-5">
       <Row className="pt-3 mb-3 justify-content-center">
         <Col sm={12} md={7}>
-          <h2 className="mb-4">
+          <h1 className="mb-4">
             Bienvenido {usuario ? usuario.nombre : "Usuario"}
-          </h2>
+          </h1>
           <Card>
             <Card.Body className="d-flex flex-column p-3">
               <div className="d-flex gap-3 mb-3">
