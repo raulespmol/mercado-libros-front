@@ -16,11 +16,11 @@ const SidebarPerfil = () => {
   const handleCloseModal = () => setShowModal(false);
 
   return (
-    <Card className="text-center sidebar pt-3 px-2 bg-light rounded-0">
+    <Card className="text-center pt-3 px-2 bg-light rounded-0 h-100 w-100">
       <Card.Body className="d-flex flex-column justify-content-between">
-        <div className="top d-flex flex-column gap-3">
+        <div className="d-flex flex-column gap-3">
           <div className="d-flex align-items-center gap-3">
-            <img src={usuario ? usuario.imagen : avatarPlaceholder} alt="" className="avatar-perfil" />
+            <img src={usuario ? usuario.imagen : avatarPlaceholder} alt="Foto perfil" className="avatar-perfil" />
               <h2 className="mb-0">{usuario ? usuario.nombre : "Usuario"}</h2>
           </div>
           <Button 
@@ -30,11 +30,13 @@ const SidebarPerfil = () => {
           >
             Crear Publicacion
           </Button>
-          <div className='links-perfil'>
+
+          <div className='links-perfil container-fluid px-0 mb-3'>
             <NavLink to="/perfil">Mi Perfil</NavLink>
             <NavLink to="./favoritos">Mis Favoritos</NavLink>
             <NavLink to="./publicaciones">Mis Publicaciones</NavLink>
           </div>
+
         </div>
 
         <Button 

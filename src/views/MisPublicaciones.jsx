@@ -14,7 +14,7 @@ const MisPublicaciones = () => {
         <Row className="mt-5">
           {librosUser.length > 0
           ? librosUser.map((libro) => (
-              <Col key={libro.libro_id} sm={6} md={4} lg={4} className="mb-4">
+              <Col key={libro.libro_id} md={12} lg={6} xl={4} className="mb-4">
                 <CardMisPublicaciones libro={libro}/>
               </Col>
             ))
