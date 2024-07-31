@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
 import { LibrosContext } from '../../context/LibrosContext';
 
-
 const Filtros = ({filtros, setFiltros, filtrosInitialState}) => {
   const { generos } = useContext(LibrosContext)
   
@@ -29,8 +28,8 @@ const Filtros = ({filtros, setFiltros, filtrosInitialState}) => {
   }
 
   return (
-    <Card className="sidebar pt-3 px-2 bg-light rounded-0">
-      <Card.Body className='filtros'>
+    <Card className="pt-3 px-2 bg-light rounded-0 sidebar">
+      <Card.Body className='d-flex flex-column align-items-center'>
 
         <h2 className="mb-2 text-center">Filtros</h2>
 

@@ -37,6 +37,7 @@ const CardTienda = ({ libro }) => {
           size="sm"
           onClick={() => setModalShow(true)}
         >
+          <i className="fa-solid fa-eye me-2"></i>
           Ver Detalles
         </Button>
         <ModalDetalle
