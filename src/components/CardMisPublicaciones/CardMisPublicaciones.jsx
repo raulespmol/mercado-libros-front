@@ -7,15 +7,12 @@ import "./style.css";
 
 const CardMisPublicaciones = ({ libro }) => {
   const { deleteLibro } = useContext(LibrosContext);
+  
   const handleEliminar = async (libroId) => {
-    const confirmacion = window.confirm(
-      "¿Estás seguro de que quieres eliminar este libro?"
-    );
-    if (confirmacion) {
-      await deleteLibro(libroId);
-    }
+    await deleteLibro(libroId);
   };
-  //estado para mostrar el modal
+
+  // Estado para mostrar el modal
   const [modalShow, setModalShow] = useState(false);
   const [modalEliminarShow, setModalEliminarShow] = useState(false);
 
