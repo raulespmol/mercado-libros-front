@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 const FormEliminarPublicacion = ({ libro, onEliminar, onCancel }) => {
-  console.log('Libro en FormEliminarPublicacion:', libro); // Verifica el contenido del libro
+  console.log('Libro en FormEliminarPublicacion:', libro); 
 
   return (
     <>
