@@ -1,9 +1,112 @@
-span {
-  font-size: 0.8rem;
-  color: #6b6b6b;
+/* CARDDETALLE ESTILOS */
+.card-detalle {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
-span.precio {
-  color: #000;
-  font-size: 2.5rem;
+.card-detalle img {
+  border-radius: 0;
+}
+
+.card-detalle .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-detalle .card-body .d-flex {
+  justify-content: space-between;
+}
+
+.card-detalle .stack {
+  flex-wrap: wrap;
+}
+
+/* MEDIAS QUERIES 995PX */
+@media (max-width: 995px) {
+  .card-detalle {
+    flex-direction: column;
+  }
+
+  .card-detalle img {
+    width: 100%;
+  }
+
+  .card-detalle .card-body {
+    padding: 1rem;
+  }
+
+  .card-detalle .card-body .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-detalle .card-body .d-flex .btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .card-detalle .card-body .d-flex .btn-group button {
+    width: 48%;
+  }
+
+  .card-detalle .stack {
+    margin-top: 1rem;
+  }
+
+  .card-detalle .card-body .precio {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-detalle .card-body .usuario {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+/* MEDIAS QUERIES 541PX */
+@media (max-width: 541px) {
+  .card-detalle {
+    flex-direction: column;
+  }
+
+  .card-detalle img {
+    display: none;
+  }
+
+  .card-detalle .card-body {
+    padding: 1rem;
+  }
+
+  .card-detalle .card-body .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-detalle .card-body .d-flex .btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .card-detalle .card-body .d-flex .btn-group button {
+    width: 48%;
+  }
+
+  .card-detalle .stack {
+    margin-top: 1rem;
+  }
+
+  .card-detalle .card-body .precio {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-detalle .card-body .usuario {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 }

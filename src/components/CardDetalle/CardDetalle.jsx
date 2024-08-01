@@ -39,7 +39,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
   }
 
   return (
-    <CardGroup className="w-100 d-flex flex-row">
+    <CardGroup className="card-detalle">
       <Card className="d-flex flex-row">
         <Image
           src={
