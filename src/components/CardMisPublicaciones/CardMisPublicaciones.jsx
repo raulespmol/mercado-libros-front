@@ -3,6 +3,7 @@ import { Card, Button, ButtonGroup } from "react-bootstrap";
 import ModalActualizarPublicacion from "../Modal/ModalActualizarPublicación";
 import ModalEliminarPublicacion from "../Modal/ModalEliminarPublicacion";
 import { LibrosContext } from "../../context/LibrosContext";
+import datosFormateados from "../../helpers/formateosGeneral";
 import "./style.css";
 
 const CardMisPublicaciones = ({ libro }) => {
@@ -17,14 +18,6 @@ const CardMisPublicaciones = ({ libro }) => {
   const [modalEliminarShow, setModalEliminarShow] = useState(false);
 
   console.log("Libro en CardMisPublicaciones:", libro);
-
-  const formatearFecha = (fecha) => {
-    const date = new Date(fecha);
-    const dia = date.getDate();
-    const mes = date.getMonth();
-    const año = date.getFullYear();
-    return `${dia}/${mes}/${año}`;
-  };
 
   return (
     <>
@@ -41,12 +34,12 @@ const CardMisPublicaciones = ({ libro }) => {
               <span className="text-secondary">
                 Publicado el:
                 <i className="fa-regular fa-calendar me-1 ms-2"></i>
-                {formatearFecha(libro.fecha_publicacion)}
+                {datosFormateados.Fecha(libro.fecha_publicacion)}
               </span>
             </Card.Subtitle>
             <h6 className="fw-bold text-success">{libro.titulo}</h6>
             <Card.Text className="desc">{libro.descripcion}</Card.Text>
-            <Card.Text className="text-secondary fw-bold">${libro.precio}</Card.Text>
+            <Card.Text className="text-secondary fw-bold">{datosFormateados.formatoCLP(libro.precio)}</Card.Text>
           </div>
         </Card.Body>
         <Card.Footer className="d-flex justify-content-between p-0">
