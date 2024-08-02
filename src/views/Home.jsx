@@ -30,7 +30,7 @@ const Home = () => {
           <Col className="d-flex justify-content-center">
              <Button 
               className="btn-md shadow-sm"
-              variant="success"
+              variant="primary"
               onClick={() => navigate('/libros')}
             >
               Ver más

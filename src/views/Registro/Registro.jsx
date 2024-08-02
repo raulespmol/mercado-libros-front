@@ -3,6 +3,7 @@ import { validateNuevoUsuario } from "../../utils/validateUser";
 import Alert from "../../components/Alert/Alert";
 import { UserContext } from "../../context/UserContext";
 import { Form, Button, Spinner } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 
 const Registro = () => {
@@ -101,7 +102,7 @@ const Registro = () => {
             placeholder="Confirma tu contraseña"
           />
           <Button 
-            variant="success" 
+            variant="secondary" 
             type="submit" 
             className="w-100 rounded-5 fw-bold"
             disabled={isSubmitting}
@@ -113,7 +114,7 @@ const Registro = () => {
             {alert.msg && <Alert msg={alert.msg} color={alert.color}/>}
           <div className="goLogin mt-3">
             <p>
-              ¿Ya tienes cuenta? <a href="/login">inicia tu sesión</a>
+              ¿Ya tienes cuenta? <NavLink to="/login" className="text-primary">inicia tu sesión</NavLink>
             </p>
           </div>
 

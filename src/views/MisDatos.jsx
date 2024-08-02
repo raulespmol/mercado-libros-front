@@ -82,7 +82,7 @@ const MisDatos = () => {
                   />
                   </div>
                 <div className="container d-flex flex-column flex-fill">
-                  <h5 className="fw-semibold text-success">Datos Personales</h5>
+                  <h5 className="fw-semibold text-primary">Datos Personales</h5>
 
                   <div className="row">
                     <Form.Group controlId="nombreUsuario" className="col-6">
@@ -128,7 +128,7 @@ const MisDatos = () => {
               </div>
 
               <div className="container d-flex flex-column gap-3">
-                <h5 className="fw-semibold text-success">Información de contacto</h5>
+                <h5 className="fw-semibold text-primary">Información de contacto</h5>
 
                 <div className="row">
                   <Form.Group controlId="telefonoUsuario" className="col-6">

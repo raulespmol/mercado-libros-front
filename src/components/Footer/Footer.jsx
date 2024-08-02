@@ -5,15 +5,15 @@ import github from '../../assets/icons/github-icon.png'
 import instagram from '../../assets/icons/instagram logo.png'
 import linkedin from '../../assets/icons/linkedin logo.png'
 import whatsapp from '../../assets/icons/WhatsApp-Icon-removebg-preview.png'
-import libro1 from '../../assets/img/MERCADO LIBROS.png'
+import Logo from '../../assets/brand/logo-2.svg'
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer bg-primary">
       <div className="section_padding container">
         <div className="footer-links">
           <div className="footer-links-div">
-            <img src={libro1} alt="logo" />
+            <img src={Logo} alt="logo" />
           </div>
           <div className="footer-links-div">
             <h4>Empresa</h4>

@@ -4,8 +4,17 @@ nav a {
   padding: 8px;
 }
 
+nav .brand a {
+  font-family: "Kadwa", serif;
+}
+
+nav .logo-nav {
+  width: 40px;
+  margin-right: 8px;
+}
+
 nav a.active, .active * {
-  color: #f2c42f
+  color: #FFD15C;
 }
 
 .iconSearch{

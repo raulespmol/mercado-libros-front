@@ -3,7 +3,7 @@ import { Form, Button, Spinner } from "react-bootstrap";
 import "./style.css";
 import { UserContext } from "../../context/UserContext";
 import Alert from "../../components/Alert/Alert";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const { loginWithEmailAndPassword } = useContext(UserContext);
@@ -81,7 +81,7 @@ const LoginPage = () => {
           />
 
           <Button
-            variant="success"
+            variant="secondary"
             type="submit"
             className="w-100 rounded-5 fw-bold"
             disabled={isSubmitting}
@@ -92,7 +92,7 @@ const LoginPage = () => {
             <hr></hr>
             {alert.msg && <Alert msg={alert.msg} color={alert.color}/>}
             <p>
-              <a href="/registro">Regístrate</a>
+              ¿Aún no tienes tu cuenta? <NavLink to="/registro" className="text-primary">Regístrate</NavLink>
             </p>
           </div>
         </form>

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button, Card, Badge } from "react-bootstrap";
 import ModalDetalle from "../Modal/ModalDetallePublicacion";
+import datosFormateados from "../../helpers/formateosGeneral";
 import "./style.css";
 
 const CardTienda = ({ libro }) => {
@@ -21,10 +22,10 @@ const CardTienda = ({ libro }) => {
         </div>
         <div className="d-flex justify-content-between">
           <div className="d-flex gap-1 align-items-center">
-            <Badge bg="secondary">{libro.genero}</Badge>
-            <Badge bg="secondary">{libro.anio}</Badge>
+            <Badge bg="dark">{libro.genero}</Badge>
+            <Badge bg="dark">{libro.anio}</Badge>
           </div>
-          <p className="precio">${libro.precio}</p>
+          <p className="precio">{datosFormateados.formatoCLP(libro.precio)}</p>
         </div>
       </Card.Body>
       <Card.Footer>
@@ -33,7 +34,7 @@ const CardTienda = ({ libro }) => {
           <p className="usuario">{libro.usuario}</p>
         </div>
         <Button
-          variant="success"
+          variant="secondary"
           size="sm"
           onClick={() => setModalShow(true)}
         >

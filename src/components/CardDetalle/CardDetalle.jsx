@@ -4,6 +4,7 @@ import { UserContext } from "../../context/UserContext";
 import { CarritoContext } from "../../context/Carrito";
 import { FavoritosContext } from "../../context/FavoritosContext";
 import placeholder from "../../assets/img/placeholder.jpg";
+import datosFormateados from "../../helpers/formateosGeneral";
 import "./style.css";
 
 const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
@@ -67,22 +68,22 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
           <p>{preview ? nuevoLibro.descripcion : libro.descripcion}</p>
 
           <Stack direction="horizontal" gap={2}>
-            <Badge bg="secondary">
+            <Badge bg="dark">
               {preview ? nuevoLibro.genero : libro.genero}
             </Badge>
 
-            <Badge bg="secondary">
+            <Badge bg="dark">
               {preview ? nuevoLibro.editorial : libro.editorial}
             </Badge>
 
-            <Badge bg="secondary">
+            <Badge bg="dark">
               {preview ? nuevoLibro.anio : libro.anio}
             </Badge>
           </Stack>
 
           <hr />
 
-          <span>publicado por</span>
+          <span className="text-muted fs-6">publicado por</span>
           <p className="usuario">
             {preview ? usuario?.nombre : libro.usuario}
           </p>
@@ -90,8 +91,8 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
           <hr />
 
           <div className="d-flex justify-content-between align-items-center">
-            <span className="precio">
-              {preview ? ( "$" + nuevoLibro.precio)  : ( "$" + libro.precio )}
+            <span className="precio fs-3">
+              {preview ? datosFormateados.formatoCLP(nuevoLibro.precio) : datosFormateados.formatoCLP(libro.precio) }
             </span>
 
             <div className="d-flex gap-2">
@@ -110,7 +111,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
               </Button>
 
               <Button 
-                variant="success" 
+                variant="primary" 
                 disabled={preview}
                 onClick={() => handleCarrito(libro)}
               >

@@ -3,7 +3,7 @@ export { default as Registro } from './Registro/Registro';
 export { default as LoginPage } from './Login/Login';
 export { default as Tienda } from './Tienda';
 export { default as DetallePublicacion } from './DetallePublicacion';
-export { default as Carrito } from './Carrito';
+export { default as Carrito } from './Carrito/Carrito';
 export { default as NotFound } from './NotFound';
 export { default as CrearPublicacion } from './CrearPublicacion';
 export { default as Perfil } from './Perfil';

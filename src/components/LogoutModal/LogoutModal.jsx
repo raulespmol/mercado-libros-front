@@ -9,7 +9,7 @@ const LogoutModal = ({show, handleClose, logout }) => {
       </Modal.Header>
       <Modal.Body>¿Estás seguro que deseas cerrar tu sesión?</Modal.Body>
       <Modal.Footer>
-        <Button variant="outline-secondary" onClick={handleClose}>
+        <Button variant="outline-dark" onClick={handleClose}>
           Cancelar
         </Button>
         <Button variant="danger" onClick={logout}>

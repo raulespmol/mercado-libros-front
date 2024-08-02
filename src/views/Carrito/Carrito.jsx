@@ -1,8 +1,9 @@
-import ItemCarrito from '../components/ItemCarrito/ItemCarrito'
+import ItemCarrito from '../../components/ItemCarrito/ItemCarrito'
 import { Button, Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
-import placeholder from "../assets/img/placeholder.jpg"
 import { useContext } from 'react'
-import { CarritoContext } from '../context/Carrito'
+import { CarritoContext } from '../../context/Carrito'
+import datosFormateados from "../../helpers/formateosGeneral";
+import "./style.css"
 
 const Carrito = () => {
   const { carrito } = useContext(CarritoContext)
@@ -10,7 +11,7 @@ const Carrito = () => {
   const total = carrito.reduce((a, b) => a + b.precio, 0)
 
   return (
-    <Container className='my-5'>
+    <Container className='my-5 carrito'>
       <Row  className="justify-content-center">
         <Col lg={8}>
           <Card>
@@ -27,8 +28,8 @@ const Carrito = () => {
             </Card.Body>
             {carrito.length > 0 && 
               <Card.Footer className='d-flex justify-content-end align-items-center gap-2'>
-                <p className='m-0 fs-5 fw-semibold'>Total: ${total}</p>
-                <Button variant='success'>Pagar</Button>
+                <p className='m-0 fs-5 fw-semibold'>Total: {datosFormateados.formatoCLP(total)}</p>
+                <Button variant='primary'>Pagar</Button>
               </Card.Footer>
             }
           </Card>

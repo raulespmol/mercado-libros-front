@@ -17,8 +17,6 @@ const CardMisPublicaciones = ({ libro }) => {
   const [modalShow, setModalShow] = useState(false);
   const [modalEliminarShow, setModalEliminarShow] = useState(false);
 
-  console.log("Libro en CardMisPublicaciones:", libro);
-
   return (
     <>
       <Card className="w-100 h-100 card-shadow border-0">
@@ -31,21 +29,21 @@ const CardMisPublicaciones = ({ libro }) => {
           />
           <div className="flex-grow-1 p-2 bg-light">
             <Card.Subtitle className="mb-2 text-muted pt-2">
-              <span className="text-secondary">
+              <span className="text-muted">
                 Publicado el:
                 <i className="fa-regular fa-calendar me-1 ms-2"></i>
                 {datosFormateados.Fecha(libro.fecha_publicacion)}
               </span>
             </Card.Subtitle>
-            <h6 className="fw-bold text-success">{libro.titulo}</h6>
+            <h6 className="fw-bold text-primary fs-5">{libro.titulo}</h6>
             <Card.Text className="desc">{libro.descripcion}</Card.Text>
-            <Card.Text className="text-secondary fw-bold">{datosFormateados.formatoCLP(libro.precio)}</Card.Text>
+            <Card.Text className="text-dark fs-5 fw-bold">{datosFormateados.formatoCLP(libro.precio)}</Card.Text>
           </div>
         </Card.Body>
         <Card.Footer className="d-flex justify-content-between p-0">
           <ButtonGroup className="w-100">
             <Button variant="outline-light" className="rounded-top-0" onClick={() => setModalShow(true)}>
-              <i className="fa-solid fa-pen-to-square text-success"></i>
+              <i className="fa-solid fa-pen-to-square text-primary"></i>
               <span className="ms-2 text-dark fw-light text-uppercase">editar</span>
             </Button>
 
