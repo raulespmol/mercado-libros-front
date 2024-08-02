@@ -42,13 +42,16 @@ const Tienda = () => {
   });
 
   return (
-    <Container fluid className="p-0 d-flex container-fluid">
+    <Container fluid className="p-0 d-flex contenedor-fluido">
+      
       <Filtros 
         setFiltros={setFiltros} 
         filtros={filtros}
         filtrosInitialState={filtrosInitialState}
+        
       />
-      <div className="p-5 w-100 contenido">
+      
+      <div className="p-5 w-100 contenido1">
         <div className="d-flex align-items-center justify-content-between mb-3">
           <h3 className="text-center">Tienda</h3>
           <Button

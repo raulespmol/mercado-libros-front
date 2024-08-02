@@ -1,30 +1,22 @@
 
-.container-fluid {
+.contenedor-fluido {
     display: flex;
     flex-direction: row;
   }
   
 
-  .filtros {
-    width: 250px;
-    flex-shrink: 0;
-  }
+  
   
   /* MEDIA QUERIES 568PX */
   @media (max-width: 568px) {
-    .container-fluid {
+    .contenedor-fluido {
       flex-direction: column;
       align-items: center; 
       margin-top: 15px;
     }
+
   
-    .filtros {
-      width: 100%;
-      max-width: 500px; 
-      
-    }
-  
-    .contenido {
+    .contenido1 {
       width: 100%;
       
     }
