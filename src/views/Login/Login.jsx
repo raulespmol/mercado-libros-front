@@ -61,7 +61,9 @@ const LoginPage = () => {
   return (
     <div className="container-fluid bg-light d-flex justify-content-center p-5">
       <div className="sectionMain bg-white p-5 m-5 border border-1 border-dark-subtle rounded-3">
-        <h1>Ingresa tus datos</h1>
+      <div className="px-5 mx-4 mb-3">
+        <h1>Ingresa tus Datos</h1>
+        </div>
         <form onSubmit={handleSubmit}>
           <Form.Control
             type="text"
