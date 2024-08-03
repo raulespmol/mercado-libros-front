@@ -3,12 +3,17 @@ import { Form, Button, Card, Spinner } from 'react-bootstrap';
 import { LibrosContext } from '../../context/LibrosContext';
 import { UserContext } from '../../context/UserContext';
 import './style.css';
+import ModalMensaje from '../Modal/ModalMensaje';
 
 const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
   const { usuario } = useContext(UserContext)
   const { generos, postLibro } = useContext(LibrosContext)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  //Estados para modal
+  const [modalShow, setModalShow] = useState(false);
+  const [message, setMessage] = useState("")
 
   const handleLibro = (e) => {
     const {name, value} = e.target
@@ -26,7 +31,8 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
     try {
       const response = await postLibro(nuevoLibro);
       if(response.data){
-        console.log(response.msg); //Mostrar en un componente Alert
+        setMessage(response.msg);
+        setModalShow(true)
         setNuevoLibro({
           titulo: "",
           autor: "",
@@ -150,6 +156,13 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
         </Form>
 
       </Card.Body>
+
+      
+      <ModalMensaje
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        message={message}
+      />
     </Card>
   );
 }

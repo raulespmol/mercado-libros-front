@@ -12,6 +12,15 @@ const Home = () => {
   
   const primerosLibros = libros.slice(0, 4)
 
+  const handleBotonTienda = () => {
+    navigate('/libros')
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    })
+  } 
+
   return (
     <>
       <Hero />
@@ -31,7 +40,7 @@ const Home = () => {
              <Button 
               className="btn-md shadow-sm"
               variant="primary"
-              onClick={() => navigate('/libros')}
+              onClick={handleBotonTienda}
             >
               Ver más
             </Button>
