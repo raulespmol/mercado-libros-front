@@ -51,7 +51,10 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
         <Card.Body>
           <div className="d-flex justify-content-between">
             <div>
-              <h2>{preview ? nuevoLibro.titulo : libro.titulo}</h2>
+              <h2>{!preview ? libro.titulo //desde Tienda muestra libro.titulo
+              : nuevoLibro.titulo ? nuevoLibro.titulo : "Titulo" //desde CrearPublicacion muestra el titulo ingresado, o "Titulo" si esta vacio
+              } 
+              </h2>
             </div>
             <div>
               {!preview && 
@@ -63,21 +66,28 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
             </div>
           </div>
 
-          <p className="mb-3">{preview ? nuevoLibro.autor : libro.autor}</p>
+          <p className="mb-0">{!preview ? libro.autor //desde Tienda muestra el autor
+            : nuevoLibro.autor ? nuevoLibro.autor : "Autor" //autor ingresado, o "Autor" si esta vacio
+          }</p>
           <hr />
-          <p>{preview ? nuevoLibro.descripcion : libro.descripcion}</p>
+          <p>{!preview ? libro.descripcion //desde Tienda muestra descripcion
+            : nuevoLibro.descripcion ? nuevoLibro.descripcion : "Descripción" //descripcion ingresada, o "Descripcion" si esta vacio
+          }</p>
 
           <Stack direction="horizontal" gap={2}>
             <Badge bg="dark">
-              {preview ? nuevoLibro.genero : libro.genero}
+              {!preview ? libro.genero 
+              : nuevoLibro.genero ? nuevoLibro.genero : "Genero"}
             </Badge>
 
             <Badge bg="dark">
-              {preview ? nuevoLibro.editorial : libro.editorial}
+              {!preview ? libro.anio 
+              : nuevoLibro.anio ? nuevoLibro.anio : "Año"}
             </Badge>
 
             <Badge bg="dark">
-              {preview ? nuevoLibro.anio : libro.anio}
+              {!preview ? libro.editorial 
+              : nuevoLibro.editorial ? nuevoLibro.editorial : "Editorial"}
             </Badge>
           </Stack>
 
@@ -92,7 +102,8 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <div className="d-flex justify-content-between align-items-center">
             <span className="precio fs-3">
-              {preview ? datosFormateados.formatoCLP(nuevoLibro.precio) : datosFormateados.formatoCLP(libro.precio) }
+              {!preview ? datosFormateados.formatoCLP(libro.precio)
+              : nuevoLibro.precio ? datosFormateados.formatoCLP(Number(nuevoLibro.precio)) : "$0"}
             </span>
 
             <div className="d-flex gap-2">

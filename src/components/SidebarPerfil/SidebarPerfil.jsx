@@ -1,5 +1,5 @@
 import { Button, Card } from "react-bootstrap"
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import avatarPlaceholder from "../../assets/img/avatar-placeholder.jpg"
 import "./style.css"
 import { useContext, useState } from "react"
@@ -11,6 +11,10 @@ const SidebarPerfil = () => {
 
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate()
+  const location = useLocation();
+
+  // Función para determinar si la ruta es exactamente activa
+  const isExactActive = (path) => location.pathname === path;
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -32,9 +36,24 @@ const SidebarPerfil = () => {
           </Button>
 
           <div className='links-perfil container-fluid px-0 mb-3'>
-            <NavLink to="/perfil">Mi Perfil</NavLink>
-            <NavLink to="./favoritos">Mis Favoritos</NavLink>
-            <NavLink to="./publicaciones">Mis Publicaciones</NavLink>
+            <NavLink 
+              to="/perfil"
+              className={({ isActive }) => isActive && isExactActive("/perfil") ? "active" : ""}
+            >
+              Mi Perfil
+            </NavLink>
+            <NavLink 
+              to="./favoritos"
+              className={({ isActive }) => isActive && isExactActive("/perfil/favoritos") ? "active" : ""}
+            >
+              Mis Favoritos
+            </NavLink>
+            <NavLink 
+              to="./publicaciones"
+              className={({ isActive }) => isActive && isExactActive("/perfil/publicaciones") ? "active" : ""}
+            >
+              Mis Publicaciones
+            </NavLink>
           </div>
 
         </div>
