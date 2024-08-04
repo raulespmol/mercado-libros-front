@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Form, Button, Card, Spinner } from 'react-bootstrap';
 import { LibrosContext } from '../../context/LibrosContext';
 import { UserContext } from '../../context/UserContext';
+import datosFormateados from '../../helpers/formateosGeneral';
 import './style.css';
 import ModalMensaje from '../Modal/ModalMensaje';
 
@@ -50,7 +51,7 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
   }
 
   return (
-    <Card className="text-center sidebar">
+    <Card className="text-center sidebar rounded-0 p-5 p-md-0">
       <Card.Body className='formulario'>
         <h2 className="mb-4">Crear Publicación</h2>
         <Form className='w-100' onSubmit={handleSubmit}>
@@ -84,14 +85,22 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
           />
           </Form.Group>
 
-          <Form.Group controlId="formAno">
-            <Form.Control 
-              type="text"
-              placeholder="Año"
-              value={nuevoLibro.anio}   
+          <Form.Group controlId="formAnio">
+            <Form.Select 
+              defaultValue=""
               onChange={handleLibro}
               name="anio"
-          />
+            >
+              <option disabled value="">Selecciona un año</option>
+              {datosFormateados.selectAnios().map(year => 
+                <option 
+                  value={year}
+                  key={year}
+                >
+                  {year}
+                </option>
+              )}
+            </Form.Select>
           </Form.Group>
 
           <Form.Group controlId="formGenero">
