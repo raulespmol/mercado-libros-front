@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import FormPublicacion from '../components/FormPublicacion/FormPublicacion'
 import CardDetalle from '../components/CardDetalle/CardDetalle';
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap';
 
 const CrearPublicacion = () => {
   const [nuevoLibro, setNuevoLibro] = useState({
@@ -22,7 +22,7 @@ const CrearPublicacion = () => {
           nuevoLibro={nuevoLibro}
           setNuevoLibro={setNuevoLibro}
         />
-        <div className='p-3'>
+        <div className='p-3 d-none d-md-block'>
           <h3 className='text-center'>Vista previa</h3>
           <Row className='justify-content-center'>
             <Col sm={12} lg={8}>

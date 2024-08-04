@@ -4,7 +4,7 @@
 }
 
 .sidebar {
-  width: 360px  !important
+  width: 360px !important;
 }
 
 .formulario {
@@ -16,4 +16,14 @@
 .form-control, .form-select {
   margin-bottom: 15px;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    width: 100% !important;
+  }
 }
