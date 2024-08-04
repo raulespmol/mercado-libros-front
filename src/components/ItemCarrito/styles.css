@@ -1,0 +1,29 @@
+@media (max-width: 768px) {
+    .unique-price-button-container {
+      align-items: start !important;
+      width: 100%;
+    }
+  
+    .unique-price,
+    .unique-button-container {
+      text-align: left;
+      width: 100%;
+    }
+  
+    .unique-price {
+      margin-bottom: 1rem;
+    }
+  
+    .unique-badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+  
+    .unique-badge-container .badge {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
