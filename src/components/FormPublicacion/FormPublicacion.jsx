@@ -85,7 +85,7 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
           />
           </Form.Group>
 
-          <Form.Group controlId="formAnio">
+          {/* <Form.Group controlId="formAnio">
             <Form.Select 
               defaultValue=""
               onChange={handleLibro}
@@ -101,6 +101,16 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
                 </option>
               )}
             </Form.Select>
+          </Form.Group> */}
+
+          <Form.Group controlId="formAno">
+            <Form.Control 
+              type="text"
+              placeholder="Año"
+              value={nuevoLibro.anio}   
+              onChange={handleLibro}
+              name="anio"
+          />
           </Form.Group>
 
           <Form.Group controlId="formGenero">
@@ -140,7 +150,7 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
               value={nuevoLibro.precio}    
               onChange={handleLibro}
               name="precio"
-          />
+        />
           </Form.Group>
 
           <Form.Group controlId="formResena">
