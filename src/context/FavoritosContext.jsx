@@ -21,12 +21,12 @@ export const FavoritosProvider = ({children}) => {
         }
         const {data} = await response.json();
         
-        const librosFavoritos = libros.filter(libro =>
-          data.some(fav => fav.libro_id === libro.libro_id)
-        );
+
+        const librosFavoritos = data?.length ? libros.filter(libro =>
+          data.some(fav => fav.libro_id === libro.libro_id)) : [];
 
         setFavoritos(librosFavoritos)
-
+        
     } catch (error) {
         console.error("Error al obtener favoritos:", error);
     }
