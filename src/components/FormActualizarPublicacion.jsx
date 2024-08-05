@@ -40,7 +40,7 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
             <Form.Label>Título</Form.Label>
             <Form.Control
               type="text"
-              placeholder={libroActualizado.titulo}
+              value={libroActualizado.titulo}
               onChange={(e) =>
                 setLibroActualizado({
                   ...libroActualizado,
@@ -56,7 +56,7 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
             <Form.Control
               as="textarea" rows={3}
               type="text"
-              placeholder={libroActualizado.descripcion}
+              value={libroActualizado.descripcion}
               onChange={(e) =>
                 setLibroActualizado({
                   ...libroActualizado,
@@ -79,7 +79,7 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
               }
             >
               {generos.map((genero) => (
-                <option key={genero.id} value={genero.id}>
+                <option key={genero.genero_id} value={genero.genero_id}>
                   {genero.nombre}
                 </option>
               ))}
@@ -91,7 +91,7 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
             <Form.Label>Precio</Form.Label>
             <Form.Control
               type="text"
-              placeholder={libroActualizado.precio}
+              value={libroActualizado.precio}
               onChange={(e) =>
                 setLibroActualizado({
                   ...libroActualizado,
@@ -106,7 +106,7 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
             <Form.Label>Portada (url de la imagen)</Form.Label>
             <Form.Control
               type="text"
-              placeholder={libroActualizado.url_imagen}
+              value={libroActualizado.url_imagen}
               onChange={(e) =>
                 setLibroActualizado({
                   ...libroActualizado,
