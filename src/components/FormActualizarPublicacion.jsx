@@ -78,6 +78,7 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
                 })
               }
             >
+
               {generos.map((genero) => (
                 <option key={genero.genero_id} value={genero.genero_id}>
                   {genero.nombre}
