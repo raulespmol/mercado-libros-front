@@ -1,9 +1,9 @@
 import { React, useState, useContext } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { LibrosContext } from "../context/LibrosContext";
-import CardTienda from "../components/CardTienda/CardTienda";
-import Filtros from "../components/Filtros/Filtros";
+import { LibrosContext } from "../../context/LibrosContext";
+import CardTienda from "../../components/CardTienda/CardTienda";
+import Filtros from "../../components/Filtros/Filtros";
 import './Tienda.css'
 
 const filtrosInitialState = {
@@ -48,10 +48,9 @@ const Tienda = () => {
         setFiltros={setFiltros} 
         filtros={filtros}
         filtrosInitialState={filtrosInitialState}
-        
       />
       
-      <div className="p-5 w-100 contenido1">
+      <div className="p-4 w-100 contenido1">
         <div className="d-flex align-items-center justify-content-between mb-3">
           <h3 className="text-center">Tienda</h3>
           <Button
@@ -65,7 +64,7 @@ const Tienda = () => {
         <Container fluid className="px-0">
           <Row>
             {librosFiltrados.map(libro => (
-                <Col key={libro.libro_id} sm={6} md={4} lg={3} className="mb-4">
+                <Col key={libro.libro_id} xs={6} lg={4} xl={3} className="mb-4">
                   <CardTienda
                     libro={libro}
                   />

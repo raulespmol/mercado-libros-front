@@ -38,7 +38,6 @@
 .imgStyle{
   object-fit: cover;
   height: 350px;
-  transition: transform 0.3s ease-in-out;
 }
 
 .rounded-left {
@@ -46,4 +45,11 @@
   border-bottom-left-radius: 0.25rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+@media (max-width: 568px) {
+  .imgStyle{
+    object-fit: cover;
+    height: 250px;
+  }
 }
