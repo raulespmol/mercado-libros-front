@@ -1,5 +1,4 @@
-import { Card, Button, Form, CloseButton } from "react-bootstrap";
-import FormFiltros from "./FormFiltros";
+import { Card, Button, Form } from "react-bootstrap";
 import { useState, useContext } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { LibrosContext } from "../../context/LibrosContext";
