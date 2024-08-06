@@ -17,7 +17,7 @@ const Favoritos = () => {
                 <CardTienda libro={libro} />
               </Col>
             ))
-          : <Spinner />
+          : <p>"No hay Favoritos"</p>
           }
         </Row>
       </Container>

@@ -1,3 +1,4 @@
+// export const URLBASE = import.meta.env.VITE_BASE_URL_LOCAL
 export const URLBASE = import.meta.env.VITE_BASE_URL
 
 export const ENDPOINT = {
