@@ -14,7 +14,7 @@
     background-color: rgba(0, 0, 0, 0.02);
   }
 
-  a.active {
+  a.side-active {
     color: #000000;
     background-color: rgba(0, 0, 0, 0.05);
 

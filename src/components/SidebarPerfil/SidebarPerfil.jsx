@@ -38,20 +38,23 @@ const SidebarPerfil = () => {
           <div className='links-perfil container-fluid px-0 mb-3'>
             <NavLink 
               to="/perfil"
-              className={({ isActive }) => isActive && isExactActive("/perfil") ? "active" : ""}
+              className={({ isActive }) => isActive && isExactActive("/perfil") ? "side-active" : ""}
             >
+              <i className="fa-solid fa-user me-2"></i>
               Mi Perfil
             </NavLink>
             <NavLink 
               to="./favoritos"
-              className={({ isActive }) => isActive && isExactActive("/perfil/favoritos") ? "active" : ""}
+              className={({ isActive }) => isActive && isExactActive("/perfil/favoritos") ? "side-active" : ""}
             >
+              <i className="fa-solid fa-bookmark me-2"></i>
               Mis Favoritos
             </NavLink>
             <NavLink 
               to="./publicaciones"
-              className={({ isActive }) => isActive && isExactActive("/perfil/publicaciones") ? "active" : ""}
+              className={({ isActive }) => isActive && isExactActive("/perfil/publicaciones") ? "side-active" : ""}
             >
+              <i className="fa-solid fa-book me-2"></i>
               Mis Publicaciones
             </NavLink>
           </div>

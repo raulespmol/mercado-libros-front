@@ -4,6 +4,7 @@ import { UserContext } from "../../context/UserContext";
 import { CarritoContext } from "../../context/Carrito";
 import { FavoritosContext } from "../../context/FavoritosContext";
 import placeholder from "../../assets/img/placeholder.jpg";
+import avatarPlaceholder from "../../assets/img/avatar-placeholder.jpg";
 import datosFormateados from "../../helpers/formateosGeneral";
 import "./style.css";
 
@@ -77,16 +78,19 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <Stack direction="horizontal" gap={2}>
             <Badge bg="dark">
+              <i className="fa-solid fa-tag me-1"></i>
               {!preview ? libro.genero 
               : nuevoLibro.genero ? nuevoLibro.genero : "Genero"}
             </Badge>
 
             <Badge bg="dark">
+              <i className="fa-solid fa-calendar me-1"></i>
               {!preview ? libro.anio 
               : nuevoLibro.anio ? nuevoLibro.anio : "Año"}
             </Badge>
 
             <Badge bg="dark">
+              <i className="fa-solid fa-book-open me-1"></i>
               {!preview ? libro.editorial 
               : nuevoLibro.editorial ? nuevoLibro.editorial : "Editorial"}
             </Badge>
@@ -94,17 +98,18 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <hr />
 
-          <span className="text-muted fs-6">publicado por</span>
-          
-          <div className="d-flex justify-content-start">
+          <div className="d-flex justify-content-start align-items-center">
             <img 
-             src={preview ? (usuario?.imagen || placeholder) : placeholder}
+             src={preview ? (usuario?.imagen || avatarPlaceholder) : avatarPlaceholder}
              alt="tumbnail perfil" 
-             className="avatar rounded-pill border border-2 border-danger border me-2"
+             className="avatar rounded-pill me-2"
             />
-            <p className="usuario">
-              {preview ? usuario?.nombre : libro.usuario}
-            </p>
+            <div>
+              <span className="text-muted m-0">publicado por</span>
+              <p className="usuario fs-5 m-0">
+                {preview ? usuario?.nombre : libro.usuario}
+              </p>
+            </div>
           </div>
 
           <hr />

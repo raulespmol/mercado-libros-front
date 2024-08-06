@@ -145,7 +145,7 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
 
           <Form.Group controlId="formPrecio">
             <Form.Control 
-              type="text"
+              type="number"
               placeholder="Precio"
               value={nuevoLibro.precio}    
               onChange={handleLibro}
@@ -155,7 +155,8 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
 
           <Form.Group controlId="formResena">
             <Form.Control 
-              as="textarea" 
+              as="textarea"
+              maxLength={250}
               rows={5} 
               placeholder="Reseña / Descripción / Detalles"
               value={nuevoLibro.descripcion}

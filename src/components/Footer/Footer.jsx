@@ -17,27 +17,14 @@ const Footer = () => {
           </div>
           <div className="footer-links-div">
             <h4>Empresa</h4>
-            <a href="/nosotros">
-              <p>Nosotros</p>
-            </a>
-            <a href="/equipo">
-              <p>Equipo</p>
-            </a>
-            <a href="/servicios">
-              <p>Servicios</p>
-            </a>
-            <a href="/contacto">
-              <p>Contacto</p>
-            </a>
+              <p className="fake-link">Equipo</p>
+              <p className="fake-link">Servicios</p>
+              <p className="fake-link">Contacto</p>
           </div>
           <div className="footer-links-div">
             <h4>Políticas</h4>
-            <a href="/privacidad">
-              <p>Seguridad y Privacidad</p>
-            </a>
-            <a href="/terminos-y-condiciones">
-              <p>Términos y Condiciones</p>
-            </a>
+              <p className="fake-link">Seguridad y Privacidad</p>
+              <p className="fake-link">Términos y Condiciones</p>
           </div>
           <div className="footer-links-div">
             <h4>Síguenos en</h4>

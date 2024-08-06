@@ -23,11 +23,12 @@
                 flex-direction: column;
                 color: white;
         
-                a{
+                .fake-link{
                     color: rgb(230, 230, 230);
                     text-decoration: none;
                     &:hover{
-                        color: white;
+                        cursor: pointer;
+                        color: #FFD15C;
                         text-decoration: underline;
                     }
                 }
