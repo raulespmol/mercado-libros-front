@@ -81,6 +81,8 @@ const Filtros = ({ filtros, setFiltros, filtrosInitialState }) => {
           <Form.Group>
             <Form.Label htmlFor="precio-min">mínimo</Form.Label>
             <Form.Control
+              type="number"
+              min={0}
               id="precio-min"
               placeholder="$0"
               name="precioMin"
@@ -91,6 +93,8 @@ const Filtros = ({ filtros, setFiltros, filtrosInitialState }) => {
           <Form.Group>
             <Form.Label htmlFor="precio-max">máximo</Form.Label>
             <Form.Control
+              type="number"
+              min={0}
               id="precio-max"
               placeholder="$100.000"
               name="precioMax"

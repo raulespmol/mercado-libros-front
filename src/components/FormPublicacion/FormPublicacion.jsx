@@ -146,6 +146,7 @@ const FormPublicacion = ({nuevoLibro, setNuevoLibro}) => {
           <Form.Group controlId="formPrecio">
             <Form.Control 
               type="number"
+              min={0}
               placeholder="Precio"
               value={nuevoLibro.precio}    
               onChange={handleLibro}
