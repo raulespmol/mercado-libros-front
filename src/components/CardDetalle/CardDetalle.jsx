@@ -12,6 +12,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
   //True: desde la vista CrearPublicacion /libros/nuevo | usa el objeto 'nuevoLibro'
   //False: vista desde Modal | usa el objeto 'libro'
   const { usuario } = useContext(UserContext)
+  console.log("USUARIO", usuario)
   const { carrito, agregarAlCarrito, eliminarDelCarrito } = useContext(CarritoContext)
   const { favoritos, toggleFavorito } = useContext(FavoritosContext)
 
@@ -94,9 +95,17 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
           <hr />
 
           <span className="text-muted fs-6">publicado por</span>
-          <p className="usuario">
-            {preview ? usuario?.nombre : libro.usuario}
-          </p>
+          
+          <div className="d-flex justify-content-start">
+            <img 
+             src={preview ? (usuario?.imagen || placeholder) : placeholder}
+             alt="tumbnail perfil" 
+             className="avatar rounded-pill border border-2 border-danger border me-2"
+            />
+            <p className="usuario">
+              {preview ? usuario?.nombre : libro.usuario}
+            </p>
+          </div>
 
           <hr />
 

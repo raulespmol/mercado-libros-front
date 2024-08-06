@@ -1,7 +1,7 @@
 export { default as Home } from './Home';
 export { default as Registro } from './Registro/Registro';
 export { default as LoginPage } from './Login/Login';
-export { default as Tienda } from './Tienda';
+export { default as Tienda } from './Tienda/Tienda';
 export { default as DetallePublicacion } from './DetallePublicacion';
 export { default as Carrito } from './Carrito/Carrito';
 export { default as NotFound } from './NotFound';

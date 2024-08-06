@@ -22,6 +22,11 @@
   flex-wrap: wrap;
 }
 
+.avatar{
+  width: 40px;
+  height: 40px;
+}
+
 /* MEDIAS QUERIES 995PX */
 @media (max-width: 995px) {
   .card-detalle {
