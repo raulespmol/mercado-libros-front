@@ -71,7 +71,7 @@ export const LibrosProvider = ({ children }) => {
   }
 
   const updateLibro = async (libroActualizado) => {
-    // console.log("ID", libroActualizado.id)
+    
     try {
       const response = await fetch(`${ENDPOINT.libros}/update/${libroActualizado.id}`, {
         method: "PUT",
@@ -85,15 +85,15 @@ export const LibrosProvider = ({ children }) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
+  
       const data = await response.json();
-      await fetchLibrosUsuario()
-      await fetchLibros()
-      return data
+      await fetchLibrosUsuario();
+      await fetchLibros();
+      return data;
     } catch (error) {
-        console.log("Error al actualizar libro", error)
+      console.log("Error al actualizar libro", error);
     }
-  }
+  };
 
   const deleteLibro = async (libroId) => {
     try {
