@@ -25,7 +25,7 @@ const SidebarPerfil = () => {
         <div className="d-flex flex-column gap-3">
           <div className="d-flex align-items-center gap-3">
             <img src={usuario ? usuario.imagen : avatarPlaceholder} alt="Foto perfil" className="avatar-perfil" />
-              <h2 className="mb-0">{usuario ? usuario.nombre : "Usuario"}</h2>
+              <h2 className="mb-0">{usuario ? usuario.nombre : "Usuario"} {usuario.apellidos ? usuario.apellidos : ""}</h2>
           </div>
           <Button 
             variant="dark" 

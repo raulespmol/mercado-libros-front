@@ -64,7 +64,7 @@ const MisDatos = () => {
   }
 
   return (
-    <Container fluid className="p-5">
+    <Container fluid className="p-md-5">
       <Row className="pt-3 mb-3 justify-content-center">
         <Col sm={12} md={7}>
           <h1 className="mb-4">
@@ -72,20 +72,19 @@ const MisDatos = () => {
           </h1>
           <Card>
             <Card.Body className="d-flex flex-column p-3">
-              <div className="d-flex gap-3 mb-3">
+              <div className="d-flex gap-3 mb-3 flex-column flex-md-row align-items-center">
                 <div>
-
-                <img
-                  src={usuario ? usuario.imagen : avatarPlaceholder}
-                  alt="imagen de perfil"
-                  style={imgStyle}
+                  <img
+                    src={usuario ? usuario.imagen : avatarPlaceholder}
+                    alt="imagen de perfil"
+                    style={imgStyle}
                   />
-                  </div>
+                </div>
                 <div className="container d-flex flex-column flex-fill">
                   <h5 className="fw-semibold text-primary">Datos Personales</h5>
 
-                  <div className="row">
-                    <Form.Group controlId="nombreUsuario" className="col-6">
+                  <div className="row flex-column flex-md-row">
+                    <Form.Group controlId="nombreUsuario" className="col-12 col-md-6">
                       <Form.Label className="m-0">Nombre</Form.Label>
                       <Form.Control
                         name="nombre"
@@ -97,7 +96,7 @@ const MisDatos = () => {
                       />
                     </Form.Group>
 
-                    <Form.Group controlId="apellidoUsuario" className="col-6">
+                    <Form.Group controlId="apellidoUsuario" className="col-12 col-md-6">
                       <Form.Label className="m-0">Apellido</Form.Label>
                       <Form.Control
                         name="apellidos"
@@ -130,8 +129,8 @@ const MisDatos = () => {
               <div className="container d-flex flex-column gap-3">
                 <h5 className="fw-semibold text-primary">Información de contacto</h5>
 
-                <div className="row">
-                  <Form.Group controlId="telefonoUsuario" className="col-6">
+                <div className="row flex-column flex-md-row">
+                  <Form.Group controlId="telefonoUsuario" className="col-12 col-md-6">
                     <Form.Label className="m-0">Teléfono</Form.Label>
                     <Form.Control
                       name="telefono"
@@ -142,7 +141,7 @@ const MisDatos = () => {
                       onChange={handleDatos}
                     />
                   </Form.Group>
-                  <Form.Group controlId="correoUsuario" className="col-6">
+                  <Form.Group controlId="correoUsuario" className="col-12 col-md-6">
                     <Form.Label className="m-0">Correo</Form.Label>
                     <Form.Control
                       name="email"
@@ -158,7 +157,7 @@ const MisDatos = () => {
             </Card.Body>
 
             <Card.Footer className="justify-content-center flex-column">
-              <div className="w-100 d-flex justify-content-end gap-2">
+              <div className="w-100 d-flex flex-column flex-md-row justify-content-end gap-2">
                 <Button variant="outline-dark">Cambiar Contraseña</Button>
                 <Button 
                   variant="dark"
