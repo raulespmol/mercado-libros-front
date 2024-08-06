@@ -100,7 +100,8 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <div className="d-flex justify-content-start align-items-center">
             <img 
-             src={preview ? (usuario?.imagen || avatarPlaceholder) : avatarPlaceholder}
+             src={preview ? (usuario?.imagen || avatarPlaceholder) 
+              : libro.avatar_usuario ? libro.avatar_usuario : avatarPlaceholder}
              alt="tumbnail perfil" 
              className="avatar rounded-pill me-2"
             />
