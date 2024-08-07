@@ -31,26 +31,42 @@ const CardMisPublicaciones = ({ libro }) => {
 
   return (
     <>
-      <Card className="w-100 h-100 card-shadow border-0 bg-light">
+      <Card className="w-100 h-100 border-0 bg-light card-shadow">
         <Card.Body className="d-flex p-0 border-0 m-0">
           <Card.Img           
             src={libro.url_imagen}
-            className="rounded-end-0 pe-0"
-            style={{ width: "40%" }}
+            className="rounded-end-0 w-50 d-none d-xxl-block"
+            alt={libro.titulo}
           />
           <div className="d-flex flex-column justify-content-between flex-grow-1 p-3">
-            <div className="pb-3">
-              <Card.Subtitle className="mb-2 text-muted">
-                <span className="text-muted">
-                  Publicado el:
-                  <i className="fa-regular fa-calendar me-1 ms-2"></i>
-                  {datosFormateados.Fecha(libro.fecha_publicacion)}
-                </span>
-              </Card.Subtitle>
-              <h6 className="fw-bold text-primary fs-5">{libro.titulo}</h6>
-              <Card.Text className="mb-2 text-muted">
-                <i className="fa-solid fa-tag me-1 text-primary"></i>{libro.genero}
-              </Card.Text>
+           
+            <div className="d-flex gap-3">
+                <div className="col-3 d-xxl-none">
+                  <Card.Img           
+                    src={libro.url_imagen}
+                    className="rounded w-100 d-xxl-none"
+                    alt={libro.titulo}
+                    />
+                </div>
+              
+                <div>             
+                  <Card.Subtitle className="my-xs-0 my-sm-2 text-muted">
+                    <span className="fs-fecha">
+                      Publicado el:
+                      <i className="fa-regular fa-calendar me-1 ms-2"></i>
+                      {datosFormateados.Fecha(libro.fecha_publicacion)}
+                    </span>
+                  </Card.Subtitle>
+                  <h6 className="fw-bold text-primary fs-5">{libro.titulo}</h6>
+                  <Card.Text className="mb-2 text-muted">
+                    <i className="fa-solid fa-tag me-1 text-primary"></i>{libro.genero}
+                  </Card.Text>
+                </div>
+            </div>
+
+            <hr />
+
+            <div>
               <Card.Text className="desc">{libro.descripcion}</Card.Text>
               <Card.Text className="text-dark fs-5 fw-bold">
                 {datosFormateados.formatoCLP(libro.precio)}
