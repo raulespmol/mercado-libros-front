@@ -75,7 +75,7 @@ const MisDatos = () => {
               <div className="d-flex gap-3 mb-3 flex-column flex-md-row align-items-center">
                 <div>
                   <img
-                    src={usuario ? usuario.imagen : avatarPlaceholder}
+                    src={usuario ? ( usuario.imagen ? usuario.imagen : avatarPlaceholder) : avatarPlaceholder}
                     alt="imagen de perfil"
                     style={imgStyle}
                   />

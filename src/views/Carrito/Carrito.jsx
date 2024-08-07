@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { CarritoContext } from '../../context/Carrito'
 import datosFormateados from "../../helpers/formateosGeneral";
 import "./style.css"
+import { NavLink } from 'react-router-dom';
 
 const Carrito = () => {
   const { carrito } = useContext(CarritoContext)
@@ -23,7 +24,9 @@ const Carrito = () => {
               ? <ListGroup variant='flush'>
                   { carrito.map(libro => <ItemCarrito libro={libro} key={libro.libro_id}/>) }
                 </ListGroup>
-              : <p className='m-0 text-center'>No se han agregado libros al carrito</p>
+              : <p className='m-0 text-center'>
+                  No se han agregado libros al carrito, explora la <NavLink to="/libros">Tienda</NavLink>
+                </p>
               }
             </Card.Body>
             {carrito.length > 0 && 

@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import { LibrosContext } from '../context/LibrosContext'
 import CardMisPublicaciones from "../components/CardMisPublicaciones/CardMisPublicaciones";
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom';
 
 const MisPublicaciones = () => {
   
@@ -18,7 +19,9 @@ const MisPublicaciones = () => {
                 <CardMisPublicaciones libro={libro}/>
               </Col>
             ))
-          : <Spinner />
+          : <p className="text-center">
+              Aún no tienes libros publicados. Te invitamos a crear tu primera publicacion <NavLink to="/libros/nuevo">aquí</NavLink>
+            </p>
           }
         </Row>
       </Container>

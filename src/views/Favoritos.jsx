@@ -2,6 +2,7 @@ import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { useContext} from "react";
 import { FavoritosContext } from "../context/FavoritosContext";
 import CardTienda from "../components/CardTienda/CardTienda";
+import { NavLink } from "react-router-dom";
 
 const Favoritos = () => {
   const { favoritos } = useContext(FavoritosContext)
@@ -17,7 +18,9 @@ const Favoritos = () => {
                 <CardTienda libro={libro} />
               </Col>
             ))
-          : <p>"No hay Favoritos"</p>
+          : <p className="text-center">
+              No has agregado ningún favorito, explora la <NavLink to="/libros">Tienda</NavLink>
+            </p>
           }
         </Row>
       </Container>

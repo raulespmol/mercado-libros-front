@@ -24,7 +24,7 @@ const SidebarPerfil = () => {
       <Card.Body className="d-flex flex-column justify-content-between">
         <div className="d-flex flex-column gap-3">
           <div className="d-flex align-items-center gap-3">
-            <img src={usuario ? usuario.imagen : avatarPlaceholder} alt="Foto perfil" className="avatar-perfil" />
+            <img src={usuario ? ( usuario.imagen ? usuario.imagen : avatarPlaceholder) : avatarPlaceholder} alt="Foto perfil" className="avatar-perfil" />
               <h2 className="mb-0">{usuario ? usuario.nombre : "Usuario"}</h2>
           </div>
           <Button 
