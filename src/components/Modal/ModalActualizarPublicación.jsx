@@ -5,9 +5,9 @@ function ModalActualizarPublicacion({ show, libro, onHide }) {
   return (
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Actualizar Publicación</Modal.Title>
+        <Modal.Title className="text-primary">Actualizar Publicación</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="bg-light">
         <FormActualizarPublicacion libro={libro} onHide={onHide} />
       </Modal.Body>
     </Modal>

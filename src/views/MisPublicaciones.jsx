@@ -9,8 +9,8 @@ const MisPublicaciones = () => {
   const { librosUser } = useContext(LibrosContext)
 
   return (
-    <Container fluid className="d-flex flex-column align-items-center p-5">
-      <h1>Mis publicaciones</h1>
+    <Container fluid className="d-flex flex-column align-items-center p-sm-2 p-md-3 p-lg-4 p-xl-5">
+      <h1 className='mt-5 mt-md-3'>Mis publicaciones</h1>
       <Container>
         <Row className="mt-5">
           {librosUser.length > 0

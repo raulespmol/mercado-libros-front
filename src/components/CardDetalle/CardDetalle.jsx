@@ -49,6 +49,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
             preview ? nuevoLibro.url_imagen || placeholder : libro.url_imagen
           }
           className="rounded-left w-100 d-none d-lg-block portada"
+          alt={preview ? nuevoLibro.titulo : libro.titulo}
         />
         <Card.Body>
            
@@ -56,6 +57,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
             <Image 
               src={ preview ? nuevoLibro.url_imagen || placeholder : libro.url_imagen}
               className="rounded w-25 d-lg-none"
+              alt={preview ? nuevoLibro.titulo : libro.titulo}
             />
             <div>           
               <h2>{!preview ? libro.titulo //desde Tienda muestra libro.titulo
