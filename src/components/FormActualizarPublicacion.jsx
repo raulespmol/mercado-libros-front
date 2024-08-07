@@ -59,6 +59,7 @@ const FormActualizarPublicacion = ({ libro, onHide }) => {
           <Form.Label>Descripción</Form.Label>
           <Form.Control
             as="textarea"
+            maxLength={250}
             rows={3}
             name="descripcion"
             value={libroActualizado.descripcion}

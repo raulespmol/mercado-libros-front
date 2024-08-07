@@ -48,17 +48,25 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
           src={
             preview ? nuevoLibro.url_imagen || placeholder : libro.url_imagen
           }
-          className="rounded-left portada-libro"
+          className="rounded-left w-100 d-none d-lg-block portada"
         />
         <Card.Body>
-          <div className="d-flex justify-content-between">
-            <div>
+           
+          <div className="d-flex gap-3">
+            <Image 
+              src={ preview ? nuevoLibro.url_imagen || placeholder : libro.url_imagen}
+              className="rounded w-25 d-lg-none"
+            />
+            <div>           
               <h2>{!preview ? libro.titulo //desde Tienda muestra libro.titulo
               : nuevoLibro.titulo ? nuevoLibro.titulo : "Titulo" //desde CrearPublicacion muestra el titulo ingresado, o "Titulo" si esta vacio
               } 
               </h2>
+              <p >{!preview ? libro.autor //desde Tienda muestra el autor
+            : nuevoLibro.autor ? nuevoLibro.autor : "Autor" //autor ingresado, o "Autor" si esta vacio
+          }</p>
             </div>
-            <div>
+            <div className="flex-grow-1">
               {!preview && 
               <Modal.Header
                 closeButton
@@ -66,13 +74,13 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
               ></Modal.Header>
             }
             </div>
+
+            
           </div>
 
-          <p className="mb-0">{!preview ? libro.autor //desde Tienda muestra el autor
-            : nuevoLibro.autor ? nuevoLibro.autor : "Autor" //autor ingresado, o "Autor" si esta vacio
-          }</p>
           <hr />
-          <p>{!preview ? libro.descripcion //desde Tienda muestra descripcion
+
+          <p className="desc">{!preview ? libro.descripcion //desde Tienda muestra descripcion
             : nuevoLibro.descripcion ? nuevoLibro.descripcion : "Descripción" //descripcion ingresada, o "Descripcion" si esta vacio
           }</p>
 
