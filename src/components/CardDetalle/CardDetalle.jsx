@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Badge, Button, Card, CardGroup, Modal, Image, Stack, Spinner } from "react-bootstrap";
 import { UserContext } from "../../context/UserContext";
 import { CarritoContext } from "../../context/Carrito";
@@ -13,12 +13,12 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
   //True: desde la vista CrearPublicacion /libros/nuevo | usa el objeto 'nuevoLibro'
   //False: vista desde Modal | usa el objeto 'libro'
   const { usuario } = useContext(UserContext)
-  console.log("USUARIO", usuario)
   const { carrito, agregarAlCarrito, eliminarDelCarrito } = useContext(CarritoContext)
   const { favoritos, toggleFavorito } = useContext(FavoritosContext)
 
   const estaEnCarrito = !preview && carrito.some(item => item.libro_id === libro.libro_id)
   const estaEnFavoritos = !preview && favoritos.some(item => item.libro_id === libro.libro_id)
+  const perteneceUsuarioLogeado = !preview && usuario && libro.usuario_id === usuario.usuario_id
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -138,7 +138,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
               <Button 
                 variant="primary" 
-                disabled={preview}
+                disabled={preview || perteneceUsuarioLogeado}
                 onClick={() => handleCarrito(libro)}
               >
                 {estaEnCarrito
