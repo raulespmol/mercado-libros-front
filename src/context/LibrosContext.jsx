@@ -120,7 +120,7 @@ export const LibrosProvider = ({ children }) => {
     fetchLibros();
     fetchGeneros();
     fetchLibrosUsuario();
-  }, []);
+  }, [token]);
 
   return (
     <LibrosContext.Provider value={{ libros, generos, postLibro, librosUser, updateLibro, deleteLibro }}>
