@@ -12,8 +12,8 @@ function SectionFeatures() {
             alt="Books and Reading"
           />
           <Carousel.Caption>
-            <h3 className="text-primary">Label for first slide</h3>
-            <p className="text-dark">Sample Text for Image One</p>
+            <h3 className="text-primary">Compra o Vende</h3>
+            <p className="text-dark">Consigue libros de segunda mano a precios increíbles, o vende los que ya has leído</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={4000}>
@@ -23,8 +23,8 @@ function SectionFeatures() {
             alt="Books"
           />
           <Carousel.Caption>
-            <h3 className="text-primary">Label for second slide</h3>
-            <p className="text-dark">Sample Text for Image Two</p>
+            <h3 className="text-primary">Compras Protegidas</h3>
+            <p className="text-dark">Tus compras se realizan a traves de una pasarela de pagos segura y confiable</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
