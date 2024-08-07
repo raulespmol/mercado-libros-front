@@ -158,7 +158,7 @@ const MisDatos = () => {
 
             <Card.Footer className="justify-content-center flex-column">
               <div className="w-100 d-flex flex-column flex-md-row justify-content-end gap-2">
-                <Button variant="outline-dark">Cambiar Contraseña</Button>
+                {/* <Button variant="outline-dark">Cambiar Contraseña</Button> */}
                 <Button 
                   variant="dark"
                   style={{minWidth: "180px"}}
