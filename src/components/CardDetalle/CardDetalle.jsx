@@ -48,7 +48,7 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
           src={
             preview ? nuevoLibro.url_imagen || placeholder : libro.url_imagen
           }
-          className="rounded-left"
+          className="rounded-left portada-libro"
         />
         <Card.Body>
           <div className="d-flex justify-content-between">
@@ -98,11 +98,11 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <hr />
 
-          <div className="d-flex justify-content-start align-items-center">
+          <div className="d-flex flex-row justify-content-start align-items-center">
             <img 
              src={preview ? (usuario?.imagen || avatarPlaceholder) 
               : libro.avatar_usuario ? libro.avatar_usuario : avatarPlaceholder}
-             alt="tumbnail perfil" 
+             alt="Avatar"
              className="avatar rounded-pill me-2"
             />
             <div>
@@ -115,13 +115,13 @@ const CardDetalle = ({ preview = false, libro, nuevoLibro }) => {
 
           <hr />
 
-          <div className="d-flex justify-content-between align-items-center">
-            <span className="precio fs-3">
+          <div className="d-flex flex-row justify-content-between align-items-center">
+            <span className="precio fs-3 m-0">
               {!preview ? datosFormateados.formatoCLP(libro.precio)
               : nuevoLibro.precio ? datosFormateados.formatoCLP(Number(nuevoLibro.precio)) : "$0"}
             </span>
 
-            <div className="d-flex gap-2">
+            <div className="d-flex gap-2 flex-row ">
               <Button 
                 className="text-light"
                 variant="warning" 
